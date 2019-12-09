@@ -1,91 +1,95 @@
-<h1>add Paitents here</h1>
+<form #addPatientForm="ngForm" (ngSubmit)="addPatient(); addPatientForm.reset()" >
 
 <a>Pesel</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.pesel" />
 
 <a>File Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Second Name</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Date of Birth</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Place of Birth</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Gender</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Guardian name and surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Foreigner</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Country</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>City</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Street</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>House Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Apartment Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Zip Code</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Post Office</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Phone Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>E-mail</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Profession</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Education</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Employment</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Type</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Series</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
-
-<a>Country</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.fileNumber" />
 
 <a>Name</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.name" />
+
+<a>Second Name</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.secondName" />
 
 <a>Surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.surname" />
+
+<a>Date of Birth</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.dateOfBirth" />
+
+<a>Place of Birth</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.placeOfBirth" />
+
+<a>Gender</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.gender" />
+
+<a>Guardian name and surname</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.guardianNameAndSurname" />
+
+<a>Foreigner</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.foreign" />
+
+<a>Country</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.country" />
+
+<a>City</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.city" />
+
+<a>Street</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.street" />
+
+<a>House Number</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.houseNumber" />
+
+<a>Apartment Number</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.apartmentNumber" />
+
+<a>Zip Code</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.zipCode" />
+
+<a>Post Office</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.postOffice" />
+
+<a>Phone Number</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.phoneNumber" />
+
+<a>E-mail</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.email" />
+
+<a>Profession</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.profession" />
+
+<a>Education</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.education" />
+
+<a>Employment</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.employment" />
+
+<a>Number</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentNumber" />
+
+<a>Type</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.type" />
+
+<a>Series</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.series" />
+
+<a>Country</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentCountry" />
+
+<a>Name</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthName" />
+
+<a>Surname</a>
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthSurname" />
 
 <a>Pesel</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthPesel" />
 
 <a>Kinship</a>
-<input class="form-control mr-sm-2" name="" type="text" [(ngModel)]="patient" />
+<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthKinship" />
+
+<button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
+
+</form>

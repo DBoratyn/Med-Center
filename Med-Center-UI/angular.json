@@ -24,6 +24,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.material.teal.dark.css",
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -120,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Med-Center-UI"
 }

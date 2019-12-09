@@ -9,17 +9,18 @@ import { AuthService } from '../_services/auth.service';
 export class LoginComponent implements OnInit {
   model: any = {};
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login() {
-    this.authService.login(this.model).subscribe(next => {
-      console.log('login success');
-    }, error => {
-      console.log('error trying to login');
-    });
+    this.authService.login(this.model).subscribe(
+      next => {
+        console.log('login success');
+      },
+      error => {
+        console.log('error trying to login');
+      }
+    );
   }
-
 }

@@ -1,1 +1,25 @@
-<h1>LIST HERE</h1>
+
+
+<dx-data-grid
+    id="gridContainer"
+    [dataSource]="listOfPatients"
+    [showColumnLines]="true"
+    [showRowLines]=true
+    [showBorders]="true"
+    [columnAutoWidth]="true"    
+    [rowAlternationEnabled]="true">
+
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager 
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[5, 10, 20]"
+        [showInfo]="true">
+    </dxo-pager>
+    
+    <dxi-column dataField="id"></dxi-column>
+    <dxi-column dataField="surname"></dxi-column>
+    <dxi-column dataField="name"></dxi-column>
+    <dxi-column dataField="pesel"></dxi-column>
+    <dxi-column dataField="dateOfBirth"></dxi-column>
+    <dxi-column dataField="phoneNumber"></dxi-column>
+</dx-data-grid>
