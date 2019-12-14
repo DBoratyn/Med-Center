@@ -10,6 +10,14 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  register(user: any) {
+    this.http.post(this.baseUrl + 'register', user).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   login(model: any) {
     return this.http.post(this.baseUrl + 'login', model)
       .pipe(

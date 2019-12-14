@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-registerUser',
@@ -9,13 +10,13 @@ export class RegisterUserComponent implements OnInit {
 
   user: any = {};
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   addUser() {
-    this.user = null;
+    this.authService.register(this.user);
   }
 
 }

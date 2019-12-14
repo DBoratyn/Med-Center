@@ -77,7 +77,17 @@ namespace Med_Center_API.Controllers
             var userToCreate = new User
             {
                 Username = userForRegisterDto.Username,
-                Role = userForRegisterDto.Role
+                Role = userForRegisterDto.Role,
+                Pesel = userForRegisterDto.Pesel,
+                Name = userForRegisterDto.Name,
+                SecondName = userForRegisterDto.SecondName,
+                Surname = userForRegisterDto.Surname,
+                DateOfBirth = userForRegisterDto.DateOfBirth,
+                PlaceOfBirth = userForRegisterDto.PlaceOfBirth,
+                City = userForRegisterDto.City,
+                Street = userForRegisterDto.Street,
+                HouseNumber = userForRegisterDto.HouseNumber,
+                ZipCode = userForRegisterDto.ZipCode
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
