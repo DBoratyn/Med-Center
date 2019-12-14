@@ -9,11 +9,16 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
-import { PatientListComponent } from './patient-list/patient-list.component';
-import { PatientModifyComponent } from './patient-modify/patient-modify.component';
+import { PatientListComponent } from './receiptionist/patient-list/patient-list.component';
+import { PatientModifyComponent } from './receiptionist/patient-modify/patient-modify.component';
 import { appRoutes } from './routes';
-import { PatientAddComponent } from './patient-add/patient-add.component';
+import { PatientAddComponent } from './receiptionist/patient-add/patient-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PricesComponent } from './receiptionist/prices/prices.component';
+import { ReceiptionistComponent } from './receiptionist/receiptionist.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { AdministratorComponent } from './administrator/administrator.component';
+import { RegisterUserComponent } from './administrator/registerUser/registerUser.component';
 
 @NgModule({
    declarations: [
@@ -23,7 +28,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       LoginComponent,
       PatientListComponent,
       PatientModifyComponent,
-      PatientAddComponent
+      PatientAddComponent,
+      PricesComponent,
+      ReceiptionistComponent,
+      DoctorComponent,
+      AdministratorComponent,
+      RegisterUserComponent
    ],
    imports: [
       BrowserModule,
@@ -35,7 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ],
    schemas: [
       CUSTOM_ELEMENTS_SCHEMA
-  ],
+   ],
    providers: [],
    bootstrap: [
       AppComponent

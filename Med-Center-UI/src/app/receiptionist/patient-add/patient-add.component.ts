@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientService } from '../_services/patient.service';
+import { PatientService } from '../../_services/patient.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

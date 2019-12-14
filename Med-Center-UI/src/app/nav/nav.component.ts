@@ -8,10 +8,12 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  role: any;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.role = this.authService.getRole();
   }
 
   logout() {

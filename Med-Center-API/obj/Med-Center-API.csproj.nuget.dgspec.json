@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jehan\\Documents\\GitHub\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {}
+    "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jehan\\Documents\\GitHub\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {
+    "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jehan\\Documents\\GitHub\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
+        "projectUniqueName": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
         "projectName": "Med-Center-API",
-        "projectPath": "C:\\Users\\jehan\\Documents\\GitHub\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
+        "projectPath": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
         "packagesPath": "C:\\Users\\jehan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jehan\\Documents\\GitHub\\Med-Center\\Med-Center-API\\obj\\",
+        "outputPath": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
