@@ -12,6 +12,7 @@ namespace Med_Center_API.Dtos
         public string Password {get; set;}
         [Required]
         public string Role {get; set;}
+        public string Profession {get;set;}
         public string Pesel {get;set;}
         public string Name {get;set;}
         public string SecondName {get;set;}

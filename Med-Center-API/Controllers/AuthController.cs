@@ -78,6 +78,7 @@ namespace Med_Center_API.Controllers
             {
                 Username = userForRegisterDto.Username,
                 Role = userForRegisterDto.Role,
+                Profession = userForRegisterDto.Profession,
                 Pesel = userForRegisterDto.Pesel,
                 Name = userForRegisterDto.Name,
                 SecondName = userForRegisterDto.SecondName,

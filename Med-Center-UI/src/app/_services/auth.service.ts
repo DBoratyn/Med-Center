@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class AuthService {
       console.log(error);
     });
   }
+
+  getUsers(): Observable<any> {
+    return this.http.get('http://localhost:5000/api/users/');
+   }
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'login', model)

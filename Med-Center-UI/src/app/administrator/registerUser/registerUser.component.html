@@ -17,6 +17,7 @@
     [(ngModel)]="user.Role"
   />
 
+  <div *ngIf="user.Role === 'Doctor'">
   <a>Profession</a>
   <input
     class="form-control mr-sm-2"
@@ -25,6 +26,7 @@
     [ngModelOptions]="{ standalone: true }"
     [(ngModel)]="user.Profession"
   />
+</div>
 
   <a>Name</a>
   <input

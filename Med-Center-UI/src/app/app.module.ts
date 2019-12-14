@@ -19,6 +19,8 @@ import { ReceiptionistComponent } from './receiptionist/receiptionist.component'
 import { DoctorComponent } from './doctor/doctor.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { RegisterUserComponent } from './administrator/registerUser/registerUser.component';
+import { UserListComponent } from './administrator/user-list/user-list.component';
+import { UserCardComponent } from './administrator/user-card/user-card.component';
 
 @NgModule({
    declarations: [
@@ -33,7 +35,9 @@ import { RegisterUserComponent } from './administrator/registerUser/registerUser
       ReceiptionistComponent,
       DoctorComponent,
       AdministratorComponent,
-      RegisterUserComponent
+      RegisterUserComponent,
+      UserListComponent,
+      UserCardComponent
    ],
    imports: [
       BrowserModule,
