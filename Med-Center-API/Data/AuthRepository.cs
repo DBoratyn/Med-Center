@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Med_Center_API.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Med_Center_API.Data
@@ -37,6 +38,12 @@ namespace Med_Center_API.Data
                 }
             }
             return true;
+        }
+
+        public async Task<User> getUser(string username)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            return user;
         }
 
         public async Task<User> Register(User user, string password)

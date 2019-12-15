@@ -20,4 +20,11 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  refreshData(event) {
+    this.authService.getUsers().subscribe(response => {
+      console.log(response);
+      this.listOfUsers = response;
+    });
+  }
+
 }

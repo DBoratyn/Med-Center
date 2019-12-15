@@ -1,6 +1,6 @@
 <div class="row"> 
   <div *ngFor="let user of listOfUsers" class="col-lg-2 col-md-3 col-sm-6">
-    <app-user-card [user]="user">
+    <app-user-card [user]="user" (uploaded)="refreshData($event)">
     </app-user-card>
   </div>
 </div>

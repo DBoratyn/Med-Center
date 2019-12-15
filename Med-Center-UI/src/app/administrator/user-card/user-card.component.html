@@ -1,18 +1,23 @@
 <div class="card mb-4">
   <div class="card-img-wrapper">
-    <img class="card-img-top" src="../../../assets/defaultpic.png">
+    <img *ngIf="user.role === 'Receiptionist'" class="card-img-top" src="../../../assets/defaultReceptionist.png">
+    <img style="height: 160px;" *ngIf="user.role === 'doctor'" class="card-img-top" src="../../../assets/defaultDoctor.jpg">
+    <img style="height: 160px;" *ngIf="user.role === 'Doctor'" class="card-img-top" src="../../../assets/defaultDoctor.jpg">
+    <img *ngIf="user.role === 'administrator'" class="card-img-top" src="../../../assets//defaultAdmin.png">
+    <img *ngIf="user.role === 'Administrator'" class="card-img-top" src="../../../assets//defaultAdmin.png">
     <ul class="list-inline member-icons animate text-center">
       <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-file-text-o"></i></button></li>
+      <li class="list-inline-item"><button class="btn btn-danger" (click)="deleteUser()"><i class="fa fa-eraser"></i></button></li>
     </ul>
   </div>
   <div class="class-body p-1">
     <h6 class="card-title text-center mb-1"> <i class="fa fa-user"></i>
-      {{user.name}}
-      {{user.role}}
-      {{user.surname}}
+      {{user.name}}</h6>
+      <h6 class="card-title text-center mb-1">{{user.role}}</h6>
+      <h6 class="card-title text-center mb-1">{{user.surname}}</h6>
       <div *ngIf="user.profession">
-      {{user.profession}}
+        <h6 class="card-title text-center mb-1">{{user.profession}}</h6>
       </div>
-    </h6>
+    
   </div>
 </div>

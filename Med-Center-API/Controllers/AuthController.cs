@@ -17,10 +17,12 @@ namespace Med_Center_API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
+        private readonly DataContext _context;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        public AuthController(IAuthRepository repo, DataContext context, IConfiguration config)
         {
             _repo = repo;
+            _context = context;
             _config = config;
         }
 
@@ -58,6 +60,17 @@ namespace Med_Center_API.Controllers
             return Ok( new { 
                 token = tokenHandler.WriteToken(token)
             });
+        }
+
+        [HttpDelete("remove/{username}")]
+        public async Task<IActionResult> Remove(string username)
+        {
+            var userFromRepo = await _repo.getUser(username);
+
+            _context.Users.Remove(userFromRepo);
+            await _context.SaveChangesAsync();
+
+            return Ok(true);
         }
 
         [HttpPost("register")]
