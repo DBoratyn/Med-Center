@@ -6,10 +6,27 @@
     <img *ngIf="user.role === 'administrator'" class="card-img-top" src="../../../assets//defaultAdmin.png">
     <img *ngIf="user.role === 'Administrator'" class="card-img-top" src="../../../assets//defaultAdmin.png">
     <ul class="list-inline member-icons animate text-center">
-      <li class="list-inline-item"><button class="btn btn-primary"><i class="fa fa-file-text-o"></i></button></li>
+      <li class="list-inline-item"><dx-button class="btn btn-primary" (onClick)="showModify()"><i class="fa fa-file-text-o"></i></dx-button></li>
       <li class="list-inline-item"><button class="btn btn-danger" (click)="deleteUser()"><i class="fa fa-eraser"></i></button></li>
     </ul>
   </div>
+
+  <dx-popup
+  width="40%"
+  height="60%"
+  [showTitle]="true"
+  title="Modify User: {{user.name}}"
+  [dragEnabled]="true"
+  [closeOnOutsideClick]="true"
+  [(visible)]="popupVisible">
+  <dx-scroll-view
+  [scrollByContent]="true"
+  [showScrollbar]="true">
+  <app-user-modify></app-user-modify>
+</dx-scroll-view>
+</dx-popup>
+
+
   <div class="class-body p-1">
     <h6 class="card-title text-center mb-1"> <i class="fa fa-user"></i>
       {{user.name}}</h6>

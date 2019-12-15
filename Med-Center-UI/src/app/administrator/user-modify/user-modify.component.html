@@ -1,0 +1,129 @@
+<form #addUserForm="ngForm" (ngSubmit)="modifyUser()">
+  <a>Pesel</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.pesel"
+  />
+
+  <a>Role</a>
+  <select class="form-control mr-sm-2" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.Role">
+    <option value="Receiptionist">Receiptionist</option>
+    <option value="Doctor">Doctor</option>
+    <option value="Administrator">Administrator</option>
+  </select>
+
+  <div *ngIf="user.Role === 'Doctor'">
+  <a>Profession</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.Profession"
+  />
+</div>
+
+  <a>Name</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.Name"
+  />
+
+  <a>Second Name</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.SecondName"
+  />
+
+  <a>Surname</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.Surname"
+  />
+
+  <a>Date of Birth</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.DateOfBirth"
+  />
+
+  <a>Place of Birth</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.PlaceOfBirth"
+  />
+
+  <a>City</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.City"
+  />
+
+  <a>Street</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.street"
+  />
+
+  <a>House Number</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.houseNumber"
+  />
+
+  <a>Zip Code</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.zipCode"
+  />
+
+  <a>Username</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.username"
+  />
+
+  <a>Password</a>
+  <input
+    class="form-control mr-sm-2"
+    name=""
+    type="text"
+    [ngModelOptions]="{ standalone: true }"
+    [(ngModel)]="user.password"
+  />
+
+  <button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
+</form>

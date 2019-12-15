@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
+  popupVisible = false;
 
   @Input() user: any;
 
@@ -25,6 +26,10 @@ export class UserCardComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  showModify() {
+    this.popupVisible = true;
   }
 
 }

@@ -3,7 +3,7 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { DxDataGridModule } from 'devextreme-angular';
+import { DxDataGridModule, DxPopupModule, DxButtonModule, DxTemplateModule, DxScrollViewModule } from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -21,6 +21,7 @@ import { AdministratorComponent } from './administrator/administrator.component'
 import { RegisterUserComponent } from './administrator/registerUser/registerUser.component';
 import { UserListComponent } from './administrator/user-list/user-list.component';
 import { UserCardComponent } from './administrator/user-card/user-card.component';
+import { UserModifyComponent } from './administrator/user-modify/user-modify.component';
 
 @NgModule({
    declarations: [
@@ -37,6 +38,7 @@ import { UserCardComponent } from './administrator/user-card/user-card.component
       AdministratorComponent,
       RegisterUserComponent,
       UserListComponent,
+      UserModifyComponent,
       UserCardComponent
    ],
    imports: [
@@ -45,7 +47,11 @@ import { UserCardComponent } from './administrator/user-card/user-card.component
       FormsModule,
       DxDataGridModule,
       RouterModule.forRoot(appRoutes),
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      DxPopupModule,
+      DxButtonModule,
+      DxTemplateModule,
+      DxScrollViewModule
    ],
    schemas: [
       CUSTOM_ELEMENTS_SCHEMA
