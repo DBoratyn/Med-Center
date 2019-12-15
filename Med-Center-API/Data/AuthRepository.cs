@@ -3,16 +3,20 @@ using System.Threading.Tasks;
 using Med_Center_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Med_Center_API.Dtos;
 
 namespace Med_Center_API.Data
 {
     public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
-        public AuthRepository(DataContext context)
+        private readonly IAuthRepository _repo;
+        public AuthRepository(IAuthRepository repo, DataContext context)
         {
             _context = context;
+            _repo = repo;
         }
+
         public async Task<User> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
@@ -38,6 +42,11 @@ namespace Med_Center_API.Data
                 }
             }
             return true;
+        }
+
+        public async Task<bool> SaveAll()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<User> getUser(string username)

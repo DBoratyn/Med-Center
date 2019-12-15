@@ -9,6 +9,7 @@ using Med_Center_API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
 
 namespace Med_Center_API.Controllers
 {
@@ -18,12 +19,14 @@ namespace Med_Center_API.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly DataContext _context;
+        private readonly IMapper _mapper;
         private readonly IConfiguration _config;
-        public AuthController(IAuthRepository repo, DataContext context, IConfiguration config)
+        public AuthController(IAuthRepository repo, DataContext context, IConfiguration config, IMapper mapper)
         {
             _repo = repo;
             _context = context;
             _config = config;
+            _mapper = mapper;
         }
 
         [HttpPost("login")]
@@ -60,6 +63,25 @@ namespace Med_Center_API.Controllers
             return Ok( new { 
                 token = tokenHandler.WriteToken(token)
             });
+        }
+
+        [HttpPut("updateUser")]
+        public async Task<IActionResult> updateUser([FromBody]UserForUpdateDto userForUpdate)
+        {
+            try
+            {
+                var userFromRepo = await _repo.getUser(userForUpdate.Username);
+                _mapper.Map(userForUpdate, userFromRepo);
+                if (await _repo.SaveAll())
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            return Ok();
         }
 
         [HttpDelete("remove/{username}")]
