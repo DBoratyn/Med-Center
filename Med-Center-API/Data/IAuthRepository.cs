@@ -10,6 +10,7 @@ namespace Med_Center_API.Data
          Task<bool> UserExists(string username);
          Task<User> getUser(string username);
          Task<User> getUserById(int id);
+         Task<DoctorService> AddDoctorService (DoctorService service);
          Task<bool> SaveAll();
     }
 }

@@ -59,6 +59,12 @@ namespace Med_Center_API.Data
             return user;
         }
 
+        public async Task<DoctorService> AddDoctorService (DoctorService service) {
+            await _context.DoctorServices.AddAsync(service);
+            await _context.SaveChangesAsync();
+            return service;
+        }
+
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash, passwordSalt;

@@ -104,6 +104,26 @@ namespace Med_Center_API.Controllers
             return Ok(true);
         }
 
+        [HttpPost("AddDoctorService")]
+        public async Task<IActionResult> AddDoctorService([FromBody]DoctorServiceToAddDto serviceToAddDto) {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var serviceToCreate = new DoctorService
+            {
+                NameOfTreatment = serviceToAddDto.NameOfTreatment,
+                Specialization = serviceToAddDto.Specialization,
+                Price = serviceToAddDto.Price
+            };
+
+            await _repo.AddDoctorService(serviceToCreate);
+
+            return StatusCode(201);
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
