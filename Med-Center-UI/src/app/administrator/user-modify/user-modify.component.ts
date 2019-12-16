@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
@@ -10,6 +10,9 @@ export class UserModifyComponent implements OnInit {
 
   @Input() selector: any;
   @Input() user: any;
+  
+  @Output()
+  uploaded = new EventEmitter<string>();
 
   constructor(private authService: AuthService) { }
 
@@ -17,12 +20,9 @@ export class UserModifyComponent implements OnInit {
   }
 
   modifyUser() {
-    console.log(this.user);
     this.user.username = this.selector;
-    if ((this.user.profession === null || this.user.profession === undefined) && this.user.profession !== 'Doctor') {
-      this.user.Profession = '';
-    }
     this.authService.updateUser(this.user);
+    this.uploaded.emit('complete');
   }
 
 }

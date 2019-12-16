@@ -8,13 +8,6 @@
     [(ngModel)]="user.pesel"
   />
 
-  <a>Role</a>
-  <select class="form-control mr-sm-2" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.Role">
-    <option value="Receiptionist">Receiptionist</option>
-    <option value="Doctor">Doctor</option>
-    <option value="Administrator">Administrator</option>
-  </select>
-
   <div *ngIf="user.Role === 'Doctor'">
   <a>Profession</a>
   <input

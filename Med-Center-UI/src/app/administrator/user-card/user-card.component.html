@@ -1,4 +1,5 @@
 <div class="card mb-4">
+  <div (mouseover)="hovering=true" (mouseout)="hovering=false">
   <div class="card-img-wrapper">
     <img *ngIf="user.role === 'Receiptionist'" class="card-img-top" src="../../../assets/defaultReceptionist.png">
     <img style="height: 160px;" *ngIf="user.role === 'doctor'" class="card-img-top" src="../../../assets/defaultDoctor.jpg">
@@ -23,6 +24,7 @@
   [scrollByContent]="true"
   [showScrollbar]="true">
   <app-user-modify 
+  (uploaded)="refreshData($event)"
   [selector]="user.username"
   [user]="user"></app-user-modify>
 </dx-scroll-view>
@@ -30,7 +32,7 @@
 
 
   <div class="class-body p-1">
-    <div (mouseover)="hovering=true" (mouseout)="hovering=false">
+    
     <h6 class="card-title text-center mb-1"> <i class="fa fa-user"></i>
       {{user.name}}</h6>
       <h6 class="card-title text-center mb-1">{{user.role}}</h6>

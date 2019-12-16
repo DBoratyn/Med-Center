@@ -22,6 +22,10 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  refreshData(event) {
+    this.uploaded.emit('complete');
+  }
+
   deleteUser() {
     this.http.delete('http://localhost:5000/api/auth/remove/' + this.user.username).subscribe(response => {
       console.log(response);
