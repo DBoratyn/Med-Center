@@ -15,5 +15,7 @@ namespace Med_Center_API.Dtos
         public string Street {get;set;}
         public string HouseNumber {get;set;}
         public string ZipCode {get;set;}
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt {get;set;}
     }
 }

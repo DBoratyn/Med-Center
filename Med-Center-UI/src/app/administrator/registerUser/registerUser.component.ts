@@ -16,12 +16,17 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  addUser() {
+  async addUser() {
     if (this.user.role !== 'Doctor') {
       this.user.profession = null;
     }
     this.authService.register(this.user);
+    await this.delay(50);
     this.router.navigateByUrl('/userslist');
   }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
 
 }

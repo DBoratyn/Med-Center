@@ -49,7 +49,13 @@ namespace Med_Center_API.Data
 
         public async Task<User> getUser(string username)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
+            return user;
+        }
+
+        public async Task<User> getUserById(int id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 

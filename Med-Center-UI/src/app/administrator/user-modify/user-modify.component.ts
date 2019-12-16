@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
@@ -8,13 +8,21 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class UserModifyComponent implements OnInit {
 
-  user: any = {};
+  @Input() selector: any;
+  @Input() user: any;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  modifyUser() {}
+  modifyUser() {
+    console.log(this.user);
+    this.user.username = this.selector;
+    if ((this.user.profession === null || this.user.profession === undefined) && this.user.profession !== 'Doctor') {
+      this.user.Profession = '';
+    }
+    this.authService.updateUser(this.user);
+  }
 
 }

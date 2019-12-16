@@ -9,6 +9,7 @@ namespace Med_Center_API.Data
          Task<User> Login(string username, string password);
          Task<bool> UserExists(string username);
          Task<User> getUser(string username);
+         Task<User> getUserById(int id);
          Task<bool> SaveAll();
     }
 }

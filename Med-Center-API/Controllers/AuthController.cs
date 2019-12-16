@@ -65,23 +65,32 @@ namespace Med_Center_API.Controllers
             });
         }
 
-        [HttpPut("updateUser")]
+        [HttpGet("getUser/{name}")]
+        public async Task<IActionResult> getUser(string name)
+        {
+            var data = await _repo.getUser(name);
+            return Ok(data);
+        }
+
+        [HttpPost("updateUser")]
         public async Task<IActionResult> updateUser([FromBody]UserForUpdateDto userForUpdate)
         {
             try
             {
-                var userFromRepo = await _repo.getUser(userForUpdate.Username);
+                var userFromRepo =  await _repo.getUser(userForUpdate.Username);
+
                 _mapper.Map(userForUpdate, userFromRepo);
+
                 if (await _repo.SaveAll())
                 {
-                    return NoContent();
+                    return StatusCode(200);
                 }
             }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
-            return Ok();
+            return StatusCode(400);
         }
 
         [HttpDelete("remove/{username}")]

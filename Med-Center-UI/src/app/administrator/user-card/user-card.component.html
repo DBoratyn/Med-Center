@@ -22,19 +22,25 @@
   <dx-scroll-view
   [scrollByContent]="true"
   [showScrollbar]="true">
-  <app-user-modify></app-user-modify>
+  <app-user-modify 
+  [selector]="user.username"
+  [user]="user"></app-user-modify>
 </dx-scroll-view>
 </dx-popup>
 
 
   <div class="class-body p-1">
+    <div (mouseover)="hovering=true" (mouseout)="hovering=false">
     <h6 class="card-title text-center mb-1"> <i class="fa fa-user"></i>
       {{user.name}}</h6>
       <h6 class="card-title text-center mb-1">{{user.role}}</h6>
       <h6 class="card-title text-center mb-1">{{user.surname}}</h6>
+      <h6 *ngIf="hovering" class="card-title text-center mb-1">{{user.name}}</h6>
+      <h6 *ngIf="hovering" class="card-title text-center mb-1">{{user.username}}</h6>
+     
       <div *ngIf="user.profession">
         <h6 class="card-title text-center mb-1">{{user.profession}}</h6>
       </div>
-    
+      <div>
   </div>
 </div>

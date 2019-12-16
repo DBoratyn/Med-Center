@@ -8,13 +8,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserCardComponent implements OnInit {
   popupVisible = false;
+  hovering: boolean;
 
   @Input() user: any;
 
   @Output()
   uploaded = new EventEmitter<string>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.hovering = false;
+   }
 
   ngOnInit() {
   }

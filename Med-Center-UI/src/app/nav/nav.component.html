@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <a >Medical Center</a>
 
-  <div *ngIf="role === 'receiptionist'">
+  <div *ngIf="role === 'receiptionist' || role === 'Receiptionist'">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"  routerLinkActive="router-link-active">
         <a class="nav-link" [routerLink]="['/receptionisthome']">Home</a>
@@ -21,7 +21,7 @@
     </ul>
   </div>
 
-  <div *ngIf="role === 'doctor'">
+  <div *ngIf="role === 'doctor' || role === 'Doctor'">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"  routerLinkActive="router-link-active">
         <a class="nav-link" [routerLink]="['/something']">Home</a>
@@ -29,7 +29,7 @@
     </ul>
   </div>
   
-  <div *ngIf="role === 'administrator'">
+  <div *ngIf="role === 'administrator' || role === 'Administrator'">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item"  routerLinkActive="router-link-active">
         <a class="nav-link" [routerLink]="['/userslist']">List of Users</a>

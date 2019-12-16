@@ -8,7 +8,8 @@ namespace Med_Center_API.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<User, UserForUpdateDto>();
+            CreateMap<User, UserForUpdateDto>(MemberList.Destination);
+            CreateMap<UserForUpdateDto, User>(MemberList.Destination);
         }
     }
 }

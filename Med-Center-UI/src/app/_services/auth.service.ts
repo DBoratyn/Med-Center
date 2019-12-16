@@ -19,6 +19,14 @@ export class AuthService {
     });
   }
 
+  updateUser(user: any) {
+    this.http.post(this.baseUrl + 'updateUser', user).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   getUsers(): Observable<any> {
     return this.http.get('http://localhost:5000/api/users/');
    }
