@@ -10,11 +10,9 @@ namespace Med_Center_API.Data
     public class AuthRepository : IAuthRepository
     {
         private readonly DataContext _context;
-        private readonly IAuthRepository _repo;
-        public AuthRepository(IAuthRepository repo, DataContext context)
+        public AuthRepository( DataContext context)
         {
             _context = context;
-            _repo = repo;
         }
 
         public async Task<User> Login(string username, string password)
