@@ -65,11 +65,46 @@ namespace Med_Center_API.Controllers
             });
         }
 
+        [HttpGet("GetDoctorServices/{DoctorName}")]
+        public async Task<IActionResult> GetDoctorServices(string DoctorName)
+        {
+            var data = await _repo.getDoctorServices(DoctorName);
+            return Ok(data);
+        }
+
+        [HttpGet("GetAllDoctorServices")]
+        public async Task<IActionResult> GetAllDoctorServices()
+        {
+            var data = await _repo.GetAllDoctorServices();
+            return Ok(data);
+        }
+
         [HttpGet("getUser/{name}")]
         public async Task<IActionResult> getUser(string name)
         {
             var data = await _repo.getUser(name);
             return Ok(data);
+        }
+
+        [HttpPost("updateDoctorService")]
+        public async Task<IActionResult> updateDoctorService([FromBody]DoctorServiceForUpdateDto doctorServiceForUpdate)
+        {
+            try
+            {
+                var serviceFromRepo = await _repo.getDoctoServiceById(doctorServiceForUpdate.id);
+
+                _mapper.Map(doctorServiceForUpdate, serviceFromRepo);
+
+                if (await _repo.SaveAll())
+                {
+                    return StatusCode(200);
+                }
+            }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            return StatusCode(400);
         }
 
         [HttpPost("updateUser")]
@@ -104,6 +139,18 @@ namespace Med_Center_API.Controllers
             return Ok(true);
         }
 
+        
+
+        [HttpPost("DeleteDoctorService/{id}")]
+        public async Task<IActionResult> DeleteDoctorService(int id)
+        {
+            var serviceFromRepo = await _repo.getDoctoServiceById(id);
+            
+            _context.DoctorServices.Remove(serviceFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
+        }
+
         [HttpPost("AddDoctorService")]
         public async Task<IActionResult> AddDoctorService([FromBody]DoctorServiceToAddDto serviceToAddDto) {
             
@@ -116,7 +163,8 @@ namespace Med_Center_API.Controllers
             {
                 NameOfTreatment = serviceToAddDto.NameOfTreatment,
                 Specialization = serviceToAddDto.Specialization,
-                Price = serviceToAddDto.Price
+                Price = serviceToAddDto.Price,
+                DoctorName = serviceToAddDto.DoctorName
             };
 
             await _repo.AddDoctorService(serviceToCreate);

@@ -22,6 +22,7 @@ import { RegisterUserComponent } from './administrator/registerUser/registerUser
 import { UserListComponent } from './administrator/user-list/user-list.component';
 import { UserCardComponent } from './administrator/user-card/user-card.component';
 import { UserModifyComponent } from './administrator/user-modify/user-modify.component';
+import { ServiceListComponent } from './doctor/service-list/service-list.component';
 
 @NgModule({
    declarations: [
@@ -39,7 +40,8 @@ import { UserModifyComponent } from './administrator/user-modify/user-modify.com
       RegisterUserComponent,
       UserListComponent,
       UserModifyComponent,
-      UserCardComponent
+      UserCardComponent,
+      ServiceListComponent
    ],
    imports: [
       BrowserModule,

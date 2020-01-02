@@ -1,0 +1,46 @@
+
+
+<dx-data-grid
+id="gridContainer"
+(onRowRemoving)="deleteRow($event)"
+(onRowUpdating)="updateRow($event)"
+(onRowInserting)="addRow($event)"
+[dataSource]="listOfServices"
+[showColumnLines]="true"
+[showRowLines]=true
+[showBorders]="true"
+[columnAutoWidth]="true"    
+[rowAlternationEnabled]="true">
+
+<dxo-paging [pageSize]="10"></dxo-paging>
+<dxo-pager 
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[5, 10, 20]"
+    [showInfo]="true">
+</dxo-pager>
+
+<dxo-selection mode="multiple"></dxo-selection>
+<dxo-group-panel [visible]="true"></dxo-group-panel>
+<dxo-export [enabled]="true" fileName="DoctorServices"></dxo-export>
+
+<dxo-editing 
+         mode="row"
+         [allowUpdating]="true"
+         [allowDeleting]="true"
+         [allowAdding]="true">
+    </dxo-editing>
+
+<dxo-filter-row 
+    [visible]="true" 
+    [applyFilter]="currentFilter"></dxo-filter-row>
+<dxo-header-filter 
+    [visible]="true"></dxo-header-filter>
+<dxo-search-panel 
+    [visible]="true" 
+    [width]="240" 
+    placeholder="Search..."></dxo-search-panel>
+
+<dxi-column label="Name of Treatment" dataField="nameOfTreatment"></dxi-column>
+<dxi-column label="Specialization" dataField="specialization"></dxi-column>
+<dxi-column label="Price" dataField="price"></dxi-column>
+</dx-data-grid>

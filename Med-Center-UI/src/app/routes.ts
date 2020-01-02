@@ -4,11 +4,13 @@ import { PatientAddComponent } from './receiptionist/patient-add/patient-add.com
 import { PricesComponent } from './receiptionist/prices/prices.component';
 import { RegisterUserComponent } from './administrator/registerUser/registerUser.component';
 import { UserListComponent } from './administrator/user-list/user-list.component';
+import { ServiceListComponent } from './doctor/service-list/service-list.component';
 
 export const appRoutes: Routes = [
     {path: 'receptionisthome', component: PatientListComponent},
     {path: 'receptionistAdd', component: PatientAddComponent},
     {path: 'prices', component: PricesComponent},
     {path: 'addUsers', component: RegisterUserComponent},
+    {path: 'servicelist', component: ServiceListComponent},
     {path: 'userslist', component: UserListComponent}
 ]
