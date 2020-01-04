@@ -79,6 +79,13 @@ namespace Med_Center_API.Data
             return service;
         }
 
+        public async Task<Appointment> AddAppointment(Appointment appointment)
+        {
+            await _context.Appointments.AddAsync(appointment);
+            await _context.SaveChangesAsync();
+            return appointment;
+        }
+
         public async Task<User> Register(User user, string password)
         {
             byte[] passwordHash, passwordSalt;

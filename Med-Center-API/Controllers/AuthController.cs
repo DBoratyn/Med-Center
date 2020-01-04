@@ -151,6 +151,34 @@ namespace Med_Center_API.Controllers
             return Ok(true);
         }
 
+        [HttpPost("AddAppointment")]
+        public async Task<IActionResult> AddAppointment([FromBody]AppointmentToAddDto appointmentToAddDto) {
+             
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var appointmentToCreate = new Appointment
+            {
+                startDate = appointmentToAddDto.parsedstartDate,
+                endDate = appointmentToAddDto.parsedendDate,
+                allDay = appointmentToAddDto.allDay,
+                text = appointmentToAddDto.text,
+                description = appointmentToAddDto.description,
+                patientName = appointmentToAddDto.patientName,
+                patientSurname = appointmentToAddDto.patientSurname,
+                patientaddress = appointmentToAddDto.patientaddress,
+                patientpesel = appointmentToAddDto.patientpesel,
+                specialization = appointmentToAddDto.specialization,
+                doctor = appointmentToAddDto.doctor
+            };
+
+            await _repo.AddAppointment(appointmentToCreate);
+
+            return StatusCode(201);
+        }
+
         [HttpPost("AddDoctorService")]
         public async Task<IActionResult> AddDoctorService([FromBody]DoctorServiceToAddDto serviceToAddDto) {
             

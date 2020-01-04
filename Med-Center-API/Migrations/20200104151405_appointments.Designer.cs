@@ -9,14 +9,64 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Med_Center_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20191214232628_UserProfession")]
-    partial class UserProfession
+    [Migration("20200104151405_appointments")]
+    partial class appointments
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+
+            modelBuilder.Entity("Med_Center_API.Models.Appointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("allDay");
+
+                    b.Property<string>("description");
+
+                    b.Property<string>("doctor");
+
+                    b.Property<long>("endDate");
+
+                    b.Property<string>("patientName");
+
+                    b.Property<string>("patientSurname");
+
+                    b.Property<string>("patientaddress");
+
+                    b.Property<string>("patientpesel");
+
+                    b.Property<string>("specialization");
+
+                    b.Property<long>("startDate");
+
+                    b.Property<string>("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("Med_Center_API.Models.DoctorService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DoctorName");
+
+                    b.Property<string>("NameOfTreatment");
+
+                    b.Property<double>("Price");
+
+                    b.Property<string>("Specialization");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DoctorServices");
+                });
 
             modelBuilder.Entity("Med_Center_API.Models.Patient", b =>
                 {

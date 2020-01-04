@@ -16,6 +16,38 @@ namespace Med_Center_API.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("Med_Center_API.Models.Appointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("allDay");
+
+                    b.Property<string>("description");
+
+                    b.Property<string>("doctor");
+
+                    b.Property<long>("endDate");
+
+                    b.Property<string>("patientName");
+
+                    b.Property<string>("patientSurname");
+
+                    b.Property<string>("patientaddress");
+
+                    b.Property<string>("patientpesel");
+
+                    b.Property<string>("specialization");
+
+                    b.Property<long>("startDate");
+
+                    b.Property<string>("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Appointments");
+                });
+
             modelBuilder.Entity("Med_Center_API.Models.DoctorService", b =>
                 {
                     b.Property<int>("Id")

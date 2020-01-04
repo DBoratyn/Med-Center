@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
+import { DxSchedulerModule } from 'devextreme-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment-add',
@@ -24,7 +26,7 @@ export class AppointmentAddComponent implements OnInit {
   patientaddress: string = '';
   patientpesel: string = ''
 
-  constructor(private authService: AuthService) { 
+  constructor(private authService: AuthService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -41,11 +43,19 @@ export class AppointmentAddComponent implements OnInit {
     e.appointmentData.description = "Patient: \n" + this.patientsurname + "," + this.patientName 
     + "\n" + this.patientpesel + "\n" + this.patientaddress + "\n\nDoctor:\n" + this.selecteddoctorspecialization;
 
+    e.appointmentData.parsedstartDate = Date.parse(e.appointmentData.startDate);
+    e.appointmentData.parsedendDate = Date.parse(e.appointmentData.endDate);
     e.appointmentData.patientName = this.patientName;
     e.appointmentData.patientSurname = this.patientsurname;
+    e.appointmentData.patientaddress = this.patientaddress;
+    e.appointmentData.patientpesel = this.patientpesel;
     e.appointmentData.specialization = this.selectedspecialization;
     e.appointmentData.doctor = this.selecteddoctor;
     console.log(e);
+
+    let appointment = e.appointmentData;
+    this.authService.addAppointment(appointment);
+    
   }
 
   CheckForm(data) {
@@ -65,30 +75,7 @@ export class AppointmentAddComponent implements OnInit {
             readOnly: false,
             width: "100%"
         }
-    }/*,{
-      label: {
-          text: "Patient Name"
-      },
-      name: "patientName",
-      colSpan:"1",
-      editorType: "dxTextBox",
-      editorOptions: {
-          readOnly: false,
-          width: "100%",
-      }
-  },{
-    label: {
-        text: "Patient Surname"
-    },
-    name: "patientSurname",
-    colSpan:"1",
-    editorType: "dxTextBox",
-    editorOptions: {
-        readOnly: false,
-        width: "100%",
     }
-}*/
-    
     ,{
       label: {
           text: "Description"
@@ -110,8 +97,8 @@ export class AppointmentAddComponent implements OnInit {
             type: "datetime",
             onValueChanged: function(args) {
                 startDate = args.value;
-                form.getEditor("endDate")
-                    .option("value", new Date (startDate.getTime() + 60 * 1000 ));
+                /*form.getEditor("endDate")
+                    .option("value", new Date (startDate.getTime() + 60 * 1000 ));*/
             }
         }
     }, {
@@ -153,8 +140,8 @@ export class AppointmentAddComponent implements OnInit {
             type: "datetime",
             onValueChanged: function(args) {
                 startDate = args.value;
-                form.getEditor("endDate")
-                    .option("value", new Date (startDate.getTime() + 60 * 1000 ));
+                //form.getEditor("endDate")
+                //    .option("value", new Date (startDate.getTime() + 60 * 1000 ));
             }
         }
     }, {

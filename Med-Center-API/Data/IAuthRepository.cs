@@ -13,6 +13,7 @@ namespace Med_Center_API.Data
          Task<User> getUserById(int id);
          Task<DoctorService> getDoctoServiceById(int id);
          Task<DoctorService> AddDoctorService (DoctorService service);
+         Task<Appointment> AddAppointment (Appointment appointment);
          Task<IEnumerable<DoctorService>> getDoctorServices (string DoctorName);
          Task<IEnumerable<DoctorService>> GetAllDoctorServices();
          Task<bool> SaveAll();
