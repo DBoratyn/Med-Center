@@ -2,8 +2,9 @@ using System;
 
 namespace Med_Center_API.Dtos
 {
-    public class AppointmentToAddDto
+    public class AppointmentForUpdateDto
     {
+        public int Id {get;set;}
         public Int64 startDate {get;set;}
         public Int64 endDate {get;set;}
         public Boolean allDay {get;set;}
@@ -15,6 +16,5 @@ namespace Med_Center_API.Dtos
         public string patientpesel {get;set;}
         public string specialization {get;set;}
         public string doctor {get;set;}
-
     }
 }

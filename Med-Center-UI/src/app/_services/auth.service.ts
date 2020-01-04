@@ -55,12 +55,28 @@ export class AuthService {
     );
   }
 
+  deleteAppointment(id) {
+    return this.http.post("http://localhost:5000/api/auth/DeleteAppointment/" + id + "/", id);
+  }
+
+  updateAppointment(appointment) {
+    return this.http.post(this.baseUrl + "updateAppointment", appointment).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   addAppointment(appointment) {
     return this.http.post(this.baseUrl + "AddAppointment", appointment).subscribe(response => {
       console.log(response);
     }, error => {
       console.log(error);
     });
+  }
+
+  getAllAppointments() {
+    return this.http.get(this.baseUrl + "GetAllAppointments" );
   }
 
   getUsers(): Observable<any> {

@@ -33,6 +33,24 @@ export class AppointmentAddComponent implements OnInit {
     this.authService.getAllServices().subscribe( response => {
       this.services = response;
     });
+    
+    this.authService.getAllAppointments().subscribe(response => {
+        this.appointmentsData = response;
+        console.log(response);
+    });
+  }
+
+  updateAppointment(e) {
+    let appointment = e.newData;
+    this.authService.updateAppointment(appointment);
+  }
+
+  deleteAppointment(e) {
+      this.authService.deleteAppointment(e.appointmentData.id).subscribe(response => {
+          console.log(response);
+      }, error => {
+          console.log(error);
+      });
   }
   
   makeAppointment(e) {
@@ -43,8 +61,6 @@ export class AppointmentAddComponent implements OnInit {
     e.appointmentData.description = "Patient: \n" + this.patientsurname + "," + this.patientName 
     + "\n" + this.patientpesel + "\n" + this.patientaddress + "\n\nDoctor:\n" + this.selecteddoctorspecialization;
 
-    e.appointmentData.parsedstartDate = Date.parse(e.appointmentData.startDate);
-    e.appointmentData.parsedendDate = Date.parse(e.appointmentData.endDate);
     e.appointmentData.patientName = this.patientName;
     e.appointmentData.patientSurname = this.patientsurname;
     e.appointmentData.patientaddress = this.patientaddress;
@@ -52,10 +68,9 @@ export class AppointmentAddComponent implements OnInit {
     e.appointmentData.specialization = this.selectedspecialization;
     e.appointmentData.doctor = this.selecteddoctor;
     console.log(e);
-
+    
     let appointment = e.appointmentData;
     this.authService.addAppointment(appointment);
-    
   }
 
   CheckForm(data) {

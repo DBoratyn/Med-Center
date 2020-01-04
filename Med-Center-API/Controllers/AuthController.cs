@@ -79,11 +79,38 @@ namespace Med_Center_API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("GetAllAppointments")]
+        public async Task<IActionResult>GetAllAppointments() {
+            var data = await _repo.GetAllAppointments();
+            return Ok(data);
+        }
+
         [HttpGet("getUser/{name}")]
         public async Task<IActionResult> getUser(string name)
         {
             var data = await _repo.getUser(name);
             return Ok(data);
+        }
+
+        [HttpPost("updateAppointment")]
+        public async Task<IActionResult> updateAppointment([FromBody]AppointmentForUpdateDto appointmentForUpdate)
+        {
+            try
+            {
+                var appointmentFromRepo = await _repo.getAppointmentById(appointmentForUpdate.Id);
+
+                _mapper.Map(appointmentForUpdate, appointmentFromRepo);
+
+                if (await _repo.SaveAll())
+                {
+                    return StatusCode(200);
+                }
+            }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            return StatusCode(400);
         }
 
         [HttpPost("updateDoctorService")]
@@ -139,7 +166,14 @@ namespace Med_Center_API.Controllers
             return Ok(true);
         }
 
-        
+        [HttpPost("DeleteAppointment/{id}")]
+        public async Task<IActionResult> DeleteAppointment(int id){
+            var serviceFromRepo = await _repo.getAppointmentById(id);
+            
+            _context.Appointments.Remove(serviceFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
+        }
 
         [HttpPost("DeleteDoctorService/{id}")]
         public async Task<IActionResult> DeleteDoctorService(int id)
@@ -161,8 +195,8 @@ namespace Med_Center_API.Controllers
 
             var appointmentToCreate = new Appointment
             {
-                startDate = appointmentToAddDto.parsedstartDate,
-                endDate = appointmentToAddDto.parsedendDate,
+                startDate = appointmentToAddDto.startDate,
+                endDate = appointmentToAddDto.endDate,
                 allDay = appointmentToAddDto.allDay,
                 text = appointmentToAddDto.text,
                 description = appointmentToAddDto.description,

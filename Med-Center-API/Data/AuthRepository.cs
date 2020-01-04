@@ -73,6 +73,12 @@ namespace Med_Center_API.Data
             return services;
         }
 
+        public async Task<IEnumerable<Appointment>> GetAllAppointments()
+        {
+            List<Appointment> appointments = await _context.Appointments.ToListAsync();
+            return appointments;
+        }
+
         public async Task<DoctorService> AddDoctorService (DoctorService service) {
             await _context.DoctorServices.AddAsync(service);
             await _context.SaveChangesAsync();
@@ -120,6 +126,11 @@ namespace Med_Center_API.Data
         {
             var service = await _context.DoctorServices.FirstOrDefaultAsync(u => u.Id == id);
             return service;
+        }
+        public async Task<Appointment> getAppointmentById(int id)
+        {
+            var appointment = await _context.Appointments.FirstOrDefaultAsync(u => u.Id == id);
+            return appointment;
         }
     }
 }
