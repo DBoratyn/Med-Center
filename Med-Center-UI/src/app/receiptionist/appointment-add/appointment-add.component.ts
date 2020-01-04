@@ -38,6 +38,15 @@ export class AppointmentAddComponent implements OnInit {
         this.appointmentsData = response;
         console.log(response);
     });
+
+    this.patientName = localStorage.getItem("Name");
+    localStorage.removeItem("Name");
+    this.patientsurname = localStorage.getItem("Surname");
+    localStorage.removeItem("Surname");
+    this.patientaddress = localStorage.getItem("Address");
+    localStorage.removeItem("Address");
+    this.patientpesel = localStorage.getItem("Pesel");
+    localStorage.removeItem("Pesel");
   }
 
   updateAppointment(e) {
