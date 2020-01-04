@@ -6,7 +6,8 @@
     [showColumnLines]="true"
     [showRowLines]=true
     [showBorders]="true"
-    [columnAutoWidth]="true"    
+    [columnAutoWidth]="true"  
+    (onRowDblClick)="AppointPatient($event)"  
     [rowAlternationEnabled]="true">
 
     <dxo-paging [pageSize]="10"></dxo-paging>

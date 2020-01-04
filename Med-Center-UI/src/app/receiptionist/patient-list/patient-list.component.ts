@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DxDataGridModule } from 'devextreme-angular';
 import { PatientService } from '../../_services/patient.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-list',
@@ -14,7 +15,7 @@ export class PatientListComponent implements OnInit {
 
   currentFilter: any;
 
-  constructor(public patientService: PatientService, private http: HttpClient) {}
+  constructor(public patientService: PatientService, private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.getPatients();
@@ -24,5 +25,23 @@ export class PatientListComponent implements OnInit {
     this.patientService.getPatients().subscribe(response => {
       this.listOfPatients = response;
     });
+  }
+
+  AppointPatient(e){
+    console.log(e);
+    localStorage.setItem("Name", e.data.name);
+    localStorage.setItem("Surname", e.data.surname);
+
+    if (e.data.houseNumber !== null && e.data.houseNumber !== undefined && e.data.houseNumber !== ""){
+      localStorage.setItem("Address", e.data.houseNumber);
+    }
+
+    if (e.data.apartmentNumber !== null && e.data.apartmentNumber !== undefined && e.data.apartmentNumber !== ""){
+      localStorage.setItem("Address", e.data.apartmentNumber);
+    }
+    
+    localStorage.setItem("Pesel", e.data.pesel);
+
+    this.router.navigateByUrl('/appointmentadd');
   }
 }
