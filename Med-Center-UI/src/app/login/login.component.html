@@ -1,5 +1,27 @@
-<form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+<!--<form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
   <input class="form-control mr-sm-2" name="username" type="text" placeholder="Username" required [(ngModel)]="model.username">
   <input class="form-control mr-sm-2" name="password" type="password" placeholder="Password" required [(ngModel)]="model.password">
   <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
 </form>
+-->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first" style="margin-top: 5%;">
+      <img src="../../../assets/logo.jpg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form #loginForm="ngForm"  style="margin-top: 3%; margin-bottom: 3%;" (ngSubmit)="login()">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" required [(ngModel)]="model.username">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" required [(ngModel)]="model.password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+    </div>
+
+  </div>
+</div>
