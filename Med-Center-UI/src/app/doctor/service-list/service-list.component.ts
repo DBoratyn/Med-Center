@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class ServiceListComponent implements OnInit {
 
-  listOfServices: any = {};
+  listOfServices: any[] = [];
   currentFilter: any;
 
   serviceToUpdate: any = {};
@@ -17,7 +17,6 @@ export class ServiceListComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getDoctorServices(this.authService.getName()).subscribe( response => {
-      response.sort((a,b) => 0 - (a > b ? -1 : 1));
       this.listOfServices = response;
     })
   }

@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   getAllServices(): Observable<any> {
-    return this.http.get("http://localhost:5000/api/auth/GetDoctorServices/");
+    return this.http.get("http://localhost:5000/api/auth/GetAllDoctorServices/");
   }
 
   getDoctorServices(doctorName: string): Observable<any> {

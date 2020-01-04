@@ -3,7 +3,7 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { DxDataGridModule, DxPopupModule, DxButtonModule, DxTemplateModule, DxScrollViewModule } from 'devextreme-angular';
+import { DxDataGridModule, DxPopupModule, DxButtonModule, DxTemplateModule, DxScrollViewModule, DxSchedulerModule } from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -23,6 +23,7 @@ import { UserListComponent } from './administrator/user-list/user-list.component
 import { UserCardComponent } from './administrator/user-card/user-card.component';
 import { UserModifyComponent } from './administrator/user-modify/user-modify.component';
 import { ServiceListComponent } from './doctor/service-list/service-list.component';
+import { AppointmentAddComponent } from './receiptionist/appointment-add/appointment-add.component';
 
 @NgModule({
    declarations: [
@@ -41,7 +42,8 @@ import { ServiceListComponent } from './doctor/service-list/service-list.compone
       UserListComponent,
       UserModifyComponent,
       UserCardComponent,
-      ServiceListComponent
+      ServiceListComponent,
+      AppointmentAddComponent
    ],
    imports: [
       BrowserModule,
@@ -53,7 +55,8 @@ import { ServiceListComponent } from './doctor/service-list/service-list.compone
       DxPopupModule,
       DxButtonModule,
       DxTemplateModule,
-      DxScrollViewModule
+      DxScrollViewModule,
+      DxSchedulerModule,
    ],
    schemas: [
       CUSTOM_ELEMENTS_SCHEMA
