@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-prices',
@@ -10,9 +11,13 @@ export class PricesComponent implements OnInit {
   listOfPrices: any = {};
   currentFilter: any;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.getAllServices().subscribe(response => {
+      this.listOfPrices = response;
+      console.log(response);
+    });
   }
 
 }

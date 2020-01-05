@@ -3,14 +3,16 @@ using System;
 using Med_Center_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Med_Center_API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200105101804_nameoftreatment")]
+    partial class nameoftreatment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,8 +33,6 @@ namespace Med_Center_API.Migrations
 
                     b.Property<long>("endDate");
 
-                    b.Property<bool>("paid");
-
                     b.Property<string>("patientName");
 
                     b.Property<string>("patientSurname");
@@ -40,8 +40,6 @@ namespace Med_Center_API.Migrations
                     b.Property<string>("patientaddress");
 
                     b.Property<string>("patientpesel");
-
-                    b.Property<double>("price");
 
                     b.Property<string>("specialization");
 

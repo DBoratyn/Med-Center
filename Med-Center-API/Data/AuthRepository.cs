@@ -132,5 +132,12 @@ namespace Med_Center_API.Data
             var appointment = await _context.Appointments.FirstOrDefaultAsync(u => u.Id == id);
             return appointment;
         }
+
+        public async Task<IEnumerable<Appointment>> GetAllAppointmentsByPesel(string Pesel)
+        {
+            var appointment = await _context.Appointments.ToListAsync();
+            var appointmentfiltered = appointment.FindAll(x => x.patientpesel == Pesel);
+            return appointmentfiltered;
+        }
     }
 }

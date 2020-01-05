@@ -24,6 +24,7 @@ import { UserCardComponent } from './administrator/user-card/user-card.component
 import { UserModifyComponent } from './administrator/user-modify/user-modify.component';
 import { ServiceListComponent } from './doctor/service-list/service-list.component';
 import { AppointmentAddComponent } from './receiptionist/appointment-add/appointment-add.component';
+import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-visits.component';
 
 @NgModule({
    declarations: [
@@ -43,7 +44,8 @@ import { AppointmentAddComponent } from './receiptionist/appointment-add/appoint
       UserModifyComponent,
       UserCardComponent,
       ServiceListComponent,
-      AppointmentAddComponent
+      AppointmentAddComponent,
+      PatientVisitsComponent 
    ],
    imports: [
       BrowserModule,

@@ -32,6 +32,8 @@ export class AppointmentAddComponent implements OnInit {
   ngOnInit() {
     this.authService.getAllServices().subscribe( response => {
       this.services = response;
+      console.log("services:");
+      console.log(response);
     });
     
     this.authService.getAllAppointments().subscribe(response => {
@@ -67,14 +69,28 @@ export class AppointmentAddComponent implements OnInit {
     this.selectedspecialization = this.splitter[0];
     this.selecteddoctor = this.splitter[1];
 
+    this.services.forEach(element => {
+        console.log(element.nameOfTreatment);
+        console.log(this.selecteddoctor);
+        if ((element.doctorName === this.selecteddoctor) && (element.nameOfTreatment === this.selectedspecialization)){
+        console.log("REEEEEE");
+        e.appointmentData.price = element.price;
+        }
+    });
+
     e.appointmentData.description = "Patient: \n" + this.patientsurname + "," + this.patientName 
     + "\n" + this.patientpesel + "\n" + this.patientaddress + "\n\nDoctor:\n" + this.selecteddoctorspecialization;
 
+    if( Date.parse(e.appointmentData.startDate) === null   || Date.parse(e.appointmentData.startDate) > 0)
+    {
+        e.appointmentData.startDate = Date.parse(e.appointmentData.startDate);
+        e.appointmentData.endDate = Date.parse(e.appointmentData.endDate);
+    }
     e.appointmentData.patientName = this.patientName;
     e.appointmentData.patientSurname = this.patientsurname;
     e.appointmentData.patientaddress = this.patientaddress;
     e.appointmentData.patientpesel = this.patientpesel;
-    e.appointmentData.specialization = this.selectedspecialization;
+    e.appointmentData.nameOfTreatment = this.selectedspecialization;
     e.appointmentData.doctor = this.selecteddoctor;
     console.log(e);
     

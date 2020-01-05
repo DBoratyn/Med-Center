@@ -14,7 +14,10 @@ namespace Med_Center_API.Dtos
         public string patientaddress {get;set;}
         public string patientpesel {get;set;}
         public string specialization {get;set;}
+        public string NameOfTreatment {get;set;}
         public string doctor {get;set;}
+        public double price {get;set;}
+        public Boolean paid {get;set;}
 
     }
 }

@@ -85,6 +85,12 @@ namespace Med_Center_API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("GetAllAppointmentsByPesel/{Pesel}")]
+        public async Task<IActionResult>GetAllAppointmentsByPesel(string Pesel) {
+            var data = await _repo.GetAllAppointmentsByPesel(Pesel);
+            return Ok(data);
+        }
+
         [HttpGet("getUser/{name}")]
         public async Task<IActionResult> getUser(string name)
         {
@@ -98,6 +104,33 @@ namespace Med_Center_API.Controllers
             try
             {
                 var appointmentFromRepo = await _repo.getAppointmentById(appointmentForUpdate.Id);
+
+                _mapper.Map(appointmentForUpdate, appointmentFromRepo);
+
+                if (await _repo.SaveAll())
+                {
+                    return StatusCode(200);
+                }
+            }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            return StatusCode(400);
+        }
+        
+        [HttpPost("PayAppointment/{id}")]
+        public async Task<IActionResult> PayAppointment(int id) {
+            try
+            {
+                var appointmentFromRepo = await _repo.getAppointmentById(id);
+                var appointmentForUpdate = appointmentFromRepo;
+
+                if (appointmentFromRepo.paid == true) {
+                    appointmentForUpdate.paid = false;
+                } else {
+                appointmentForUpdate.paid = true;
+                }
 
                 _mapper.Map(appointmentForUpdate, appointmentFromRepo);
 
@@ -205,7 +238,10 @@ namespace Med_Center_API.Controllers
                 patientaddress = appointmentToAddDto.patientaddress,
                 patientpesel = appointmentToAddDto.patientpesel,
                 specialization = appointmentToAddDto.specialization,
-                doctor = appointmentToAddDto.doctor
+                NameOfTreatment = appointmentToAddDto.NameOfTreatment,
+                doctor = appointmentToAddDto.doctor,
+                price = appointmentToAddDto.price,
+                paid = appointmentToAddDto.paid
             };
 
             await _repo.AddAppointment(appointmentToCreate);

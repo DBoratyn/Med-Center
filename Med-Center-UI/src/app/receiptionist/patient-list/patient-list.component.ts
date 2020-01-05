@@ -24,6 +24,7 @@ export class PatientListComponent implements OnInit {
   getPatients() {
     this.patientService.getPatients().subscribe(response => {
       this.listOfPatients = response;
+      console.log(response);
     });
   }
 

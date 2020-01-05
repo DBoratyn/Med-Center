@@ -52,12 +52,12 @@
           <div style="margin-top: 2%;">
 
             <div class="row" style="margin-bottom: 2%;">
-              <div class="col-md-5">Specialization:</div>
+              <div class="col-md-5">Service:</div>
               <div class="col-md-7">
                   <select [(ngModel)]="selecteddoctorspecialization">
                     <option value=""></option>
                     <option *ngFor="let item of services">
-                      {{item.specialization}} #{{item.doctorName}}
+                      {{item.nameOfTreatment}} #{{item.doctorName}}
                     </option>
                  </select>
               </div>

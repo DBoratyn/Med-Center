@@ -79,6 +79,15 @@ export class AuthService {
     return this.http.get(this.baseUrl + "GetAllAppointments" );
   }
 
+  getAllAppointmentsByPesel(Pesel) {
+    return this.http.get(this.baseUrl + "GetAllAppointmentsByPesel/" + Pesel );
+
+  }
+
+  payAppointment(id) {
+    return this.http.post(this.baseUrl + "PayAppointment/" + id, id);
+  }
+
   getUsers(): Observable<any> {
     return this.http.get("http://localhost:5000/api/users/");
   }
