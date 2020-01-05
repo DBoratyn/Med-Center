@@ -1,95 +1,159 @@
+<div class="container">
 <form #addPatientForm="ngForm" (ngSubmit)="addPatient(); addPatientForm.reset()" >
-
-<a>Pesel</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.pesel" />
-
-<a>File Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.fileNumber" />
-
-<a>Name</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.name" />
-
-<a>Second Name</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.secondName" />
-
-<a>Surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.surname" />
-
-<a>Date of Birth</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.dateOfBirth" />
-
-<a>Place of Birth</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.placeOfBirth" />
-
-<a>Gender</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.gender" />
-
-<a>Guardian name and surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.guardianNameAndSurname" />
-
-<a>Foreigner</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.foreign" />
-
-<a>Country</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.country" />
-
-<a>City</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.city" />
-
-<a>Street</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.street" />
-
-<a>House Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.houseNumber" />
-
-<a>Apartment Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.apartmentNumber" />
-
-<a>Zip Code</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.zipCode" />
-
-<a>Post Office</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.postOffice" />
-
-<a>Phone Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.phoneNumber" />
-
-<a>E-mail</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.email" />
-
-<a>Profession</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.profession" />
-
-<a>Education</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.education" />
-
-<a>Employment</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.employment" />
-
-<a>Number</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentNumber" />
-
-<a>Type</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.type" />
-
-<a>Series</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.series" />
-
-<a>Country</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentCountry" />
-
-<a>Name</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthName" />
-
-<a>Surname</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthSurname" />
-
-<a>Pesel</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthPesel" />
-
-<a>Kinship</a>
-<input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthKinship" />
-
-<button class="btn btn-success my-2 my-sm-0" type="submit">Submit</button>
-
+<div class="row">
+    <h4>Basic data:</h4>
+</div>
+<div class="row" style="background-color:#363640; padding-top: 1%; border-radius: 15px 15px 0px 0px;">
+    <div class="col-sm-3">
+        <b style="color:#009688;">Pesel</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.pesel" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">File Number</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.fileNumber" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Foreigner</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.foreign" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Country</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.country" />  
+    </div>
+</div>
+<div class="row" style="background-color: #363640;">
+    <div class="col-sm-3">
+        <b style="color:#009688;">Name</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.name" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Second Name</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.secondName" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Surname</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.surname" />  
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Gender</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.gender" />
+    </div>
+</div>
+<div class="row form-group" style="background-color: #363640; padding-bottom: 2%; border-radius:0px 0px 15px 15px;"> 
+    <div class="col-sm-3">
+        <b style="color:#009688;">Date of Birth</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.dateOfBirth" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Place of Birth</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.placeOfBirth" />
+    </div>
+    <div class="col-sm-6">
+        <b style="color:#009688;">Guardian name and surname</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.guardianNameAndSurname" />
+    </div>
+</div>
+<div class="row">
+    <h4>Address:</h4>
+</div>
+<div class="row" style="background-color:#363640; padding-top: 1%; border-radius: 15px 15px 0px 0px;">
+    <div class="col-sm-2">
+        <b style="color:#009688;">City</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.city" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Street</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.street" />
+    </div>
+    <div class="col-sm-2">
+        <b style="color:#009688;">House Number</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.houseNumber" />
+    </div>
+    <div class="col-sm-2">
+        <b style="color:#009688;">Apartment Number</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.apartmentNumber" />        
+    </div>
+    <div class="col-sm-1">
+        <b style="color:#009688;">Zip Code</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.zipCode" />        
+    </div>
+    <div class="col-sm-2">
+        <b style="color:#009688;">Post Office</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.postOffice" />        
+    </div>
+</div>
+<div class="row form-group" style="background-color: #363640; padding-bottom: 2%; border-radius:0px 0px 15px 15px;"> 
+    <div class="col-sm-3">
+        <b style="color:#009688;">Phone Number</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.phoneNumber" />
+    </div>
+    <div class="col-sm-5">
+        <b style="color:#009688;">E-mail</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.email" />        
+    </div>
+</div>
+<div class="row">
+    <h4>Profession and education:</h4>
+</div>
+<div class="row form-group" style="background-color: #363640; padding-bottom: 2%; padding-top: 1%; border-radius: 15px;">
+    <div class="col-sm-4">
+        <b style="color:#009688;">Profession</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.profession" />
+    </div>
+    <div class="col-sm-4">
+        <b style="color:#009688;">Education</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.education" />        
+    </div>
+    <div class="col-sm-4">
+        <b style="color:#009688;">Employment</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.employment" />        
+    </div>
+</div>
+<div class="row">
+    <h4>ID document:</h4>
+</div>
+<div class="row form-group" style="background-color: #363640; padding-bottom: 2%; padding-top: 1%; border-radius: 15px;">
+    <div class="col-sm-3">
+        <b style="color:#009688;">Number</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentNumber" />
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Type</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.type" />        
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Series</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.series" />        
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Country</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.DocumentCountry" />        
+    </div>
+</div>
+<div class="row">
+    <h4>Person authorized to inspect data:</h4>
+</div>
+<div class="row form-group" style="background-color: #363640; padding-bottom: 2%; padding-top: 1%; border-radius: 15px; padding-top: 1%; border-radius: 15px;">
+    <div class="col-sm-3">
+        <b style="color:#009688;">Name</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthName" /> 
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Surname</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthSurname" />        
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Pesel</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthPesel" />        
+    </div>
+    <div class="col-sm-3">
+        <b style="color:#009688;">Kinship</b>
+        <input class="form-control mr-sm-2" name="" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.personToAuthKinship" />        
+    </div>
+</div>
+<div class="row justify-content-end">
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">Submit</button>
+</div>
 </form>
+</div>
+<br>
