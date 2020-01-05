@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   baseUrl = "http://localhost:5000/api/auth/";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   register(user: any) {
     this.http.post(this.baseUrl + "register", user).subscribe(
@@ -24,6 +25,17 @@ export class AuthService {
 
   addService(service: any) {
     this.http.post(this.baseUrl + "AddDoctorService", service).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  updatePatient(patient: any) {
+    this.http.post(this.baseUrl + "updatePatient", patient).subscribe(
       response => {
         console.log(response);
       },
@@ -100,8 +112,16 @@ export class AuthService {
     return this.http.get("http://localhost:5000/api/auth/GetDoctorServices/" + doctorName + '/');
   }
 
+  GetDoctorAppointments(doctorName: string): Observable<any> {
+    return this.http.get("http://localhost:5000/api/auth/GetDoctorAppointments/" + doctorName + '/');
+  }
+
   deleteDoctorService(id: number) {
     return this.http.post("http://localhost:5000/api/auth/DeleteDoctorService/" + id + "/", id);
+  }
+
+  deletePatient(id: number) {
+    return this.http.post("http://localhost:5000/api/auth/DeletePatient/" + id + "/", id);
   }
 
   login(model: any) {

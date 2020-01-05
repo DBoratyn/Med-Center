@@ -3,6 +3,7 @@ import { DxDataGridModule } from 'devextreme-angular';
 import { PatientService } from '../../_services/patient.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-patient-list',
@@ -14,8 +15,10 @@ export class PatientListComponent implements OnInit {
   baseUrl = 'http://localhost:5000/api/patient/';
 
   currentFilter: any;
+  popupVisible = false;
 
-  constructor(public patientService: PatientService, private http: HttpClient, private router: Router) {}
+  constructor(public patientService: PatientService, private http: HttpClient, private router: Router,
+     private authService: AuthService) {}
 
   ngOnInit() {
     this.getPatients();
@@ -26,6 +29,39 @@ export class PatientListComponent implements OnInit {
       this.listOfPatients = response;
       console.log(response);
     });
+  }
+
+  deleteRow(e) {
+    console.log("REEEEEEEEEEEEEEEEEEEee");
+    const idToDelete = e.data.id;
+    this.authService.deletePatient(idToDelete).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  newData: any;
+  oldData: any;
+  updateRow(e) {
+     this.newData = e.newData;
+     this.oldData = e.oldData;
+     let updateData = this.oldData;
+
+     for (var key in this.newData) {
+      if (this.newData.hasOwnProperty(key)) {
+         //console.log(key + " -> " + this.newData[key]);
+         for (var oldKey in this.oldData) {
+          if (oldKey === key) {
+            updateData[oldKey] === this.newData[key];
+          }
+        }
+      }
+    }
+    console.log(e);
+
+    this.authService.updatePatient(this.oldData);
+
   }
 
   AppointPatient(e){

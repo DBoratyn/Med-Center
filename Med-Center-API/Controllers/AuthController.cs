@@ -72,6 +72,13 @@ namespace Med_Center_API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("GetDoctorAppointments/{DoctorName}")]
+        public async Task<IActionResult> GetDoctorAppointments(string DoctorName)
+        {
+            var data = await _repo.GetDoctorAppointments(DoctorName);
+            return Ok(data);
+        }
+
         [HttpGet("GetAllDoctorServices")]
         public async Task<IActionResult> GetAllDoctorServices()
         {
@@ -96,6 +103,22 @@ namespace Med_Center_API.Controllers
         {
             var data = await _repo.getUser(name);
             return Ok(data);
+        }
+
+        [HttpPost("updatePatient")]
+        public async Task<IActionResult> updatePatient([FromBody]PatientForUpdateDto patientForUpdate)
+        {
+            try {
+                var patientFromRepo = await _repo.getPatientById(patientForUpdate.Id);
+
+                _mapper.Map(patientForUpdate, patientFromRepo);
+
+                await _repo.SaveAll();
+            } catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            return StatusCode(200);
         }
 
         [HttpPost("updateAppointment")]
@@ -207,6 +230,16 @@ namespace Med_Center_API.Controllers
             await _context.SaveChangesAsync();
             return Ok(true);
         }
+
+        [HttpPost("DeletePatient/{id}")]
+        public async Task<IActionResult> DeletePatient(int id){
+            var patientFromRepo = await _repo.getPatientById(id);
+            
+            _context.Patients.Remove(patientFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
+        }
+
 
         [HttpPost("DeleteDoctorService/{id}")]
         public async Task<IActionResult> DeleteDoctorService(int id)

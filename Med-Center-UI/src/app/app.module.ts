@@ -25,6 +25,7 @@ import { UserModifyComponent } from './administrator/user-modify/user-modify.com
 import { ServiceListComponent } from './doctor/service-list/service-list.component';
 import { AppointmentAddComponent } from './receiptionist/appointment-add/appointment-add.component';
 import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-visits.component';
+import { AppointmentsComponent } from './doctor/appointments/appointments.component';
 
 @NgModule({
    declarations: [
@@ -45,7 +46,8 @@ import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-v
       UserCardComponent,
       ServiceListComponent,
       AppointmentAddComponent,
-      PatientVisitsComponent 
+      PatientVisitsComponent ,
+      AppointmentsComponent,
    ],
    imports: [
       BrowserModule,

@@ -67,6 +67,13 @@ namespace Med_Center_API.Data
             return filteredServices;
         }
 
+        public async Task<IEnumerable<Appointment>> GetDoctorAppointments(string DoctorName)
+        {
+            List<Appointment> services = await _context.Appointments.ToListAsync();
+            IEnumerable<Appointment> filteredServices = services.FindAll(x => x.doctor.ToLower() == DoctorName.ToLower());
+            return filteredServices;
+        }
+
         public async Task<IEnumerable<DoctorService>> GetAllDoctorServices()
         {
             List<DoctorService> services = await _context.DoctorServices.ToListAsync();
@@ -139,5 +146,12 @@ namespace Med_Center_API.Data
             var appointmentfiltered = appointment.FindAll(x => x.patientpesel == Pesel);
             return appointmentfiltered;
         }
+
+        public async Task<Patient> getPatientById(int id)
+        {
+            var patient = await _context.Patients.FirstOrDefaultAsync(u => u.Id == id);
+            return patient;
+        }
+
     }
 }

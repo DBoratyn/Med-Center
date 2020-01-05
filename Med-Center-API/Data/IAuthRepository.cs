@@ -16,9 +16,11 @@ namespace Med_Center_API.Data
          Task<DoctorService> AddDoctorService (DoctorService service);
          Task<Appointment> AddAppointment (Appointment appointment);
          Task<IEnumerable<DoctorService>> getDoctorServices (string DoctorName);
+         Task<IEnumerable<Appointment>> GetDoctorAppointments (string DoctorName);
          Task<IEnumerable<DoctorService>> GetAllDoctorServices();
          Task<IEnumerable<Appointment>> GetAllAppointments();         
          Task<IEnumerable<Appointment>> GetAllAppointmentsByPesel(string Pesel);         
          Task<bool> SaveAll();
+         Task<Patient> getPatientById(int id);
     }
 }

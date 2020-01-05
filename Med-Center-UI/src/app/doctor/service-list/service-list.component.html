@@ -24,11 +24,17 @@ id="gridContainer"
 <dxo-export [enabled]="true" fileName="DoctorServices" [allowExportSelectedData]="true"></dxo-export>
 
 <dxo-editing 
-         mode="row"
-         [allowUpdating]="true"
-         [allowDeleting]="true"
-         [allowAdding]="true">
-    </dxo-editing>
+mode="popup"
+[allowDeleting]="true"
+[allowUpdating]="true">
+<dxo-popup
+    title="Editing Patient"
+    [showTitle]="true"
+    width="50%"
+    height="90%"
+    [position]="{ my: 'top', at: 'top', of: window }">
+</dxo-popup>
+</dxo-editing>
 
 <dxo-filter-row 
     [visible]="true" 

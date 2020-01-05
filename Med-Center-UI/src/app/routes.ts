@@ -7,6 +7,8 @@ import { UserListComponent } from './administrator/user-list/user-list.component
 import { ServiceListComponent } from './doctor/service-list/service-list.component';
 import { AppointmentAddComponent } from './receiptionist/appointment-add/appointment-add.component';
 import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-visits.component';
+import { AppointmentsComponent } from './doctor/appointments/appointments.component';
+import { LoginComponent } from './login/login.component';
 
 export const appRoutes: Routes = [
     {path: 'receptionisthome', component: PatientListComponent},
@@ -16,5 +18,7 @@ export const appRoutes: Routes = [
     {path: 'servicelist', component: ServiceListComponent},
     {path: 'userslist', component: UserListComponent},
     {path: 'appointmentadd', component: AppointmentAddComponent},
-    {path: 'listofvisits', component: PatientVisitsComponent}
+    {path: 'listofvisits', component: PatientVisitsComponent},
+    {path: 'appointments', component: AppointmentsComponent},
+    {path: 'login', component: LoginComponent}
 ]
