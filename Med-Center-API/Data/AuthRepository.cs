@@ -60,6 +60,19 @@ namespace Med_Center_API.Data
             return user;
         }
 
+        public async Task<IEnumerable<Sickness>> getSicknessById(int id)
+        {
+            List<Sickness> services = await _context.Sicknesses.ToListAsync();
+            IEnumerable<Sickness> filteredServices = services.FindAll(x => x.appointmentId == id);
+            return filteredServices;
+        }
+
+        public async Task<Sickness> getSingleSicknessById(int id)
+        {
+            var sickness = await _context.Sicknesses.FirstOrDefaultAsync(x => x.id == id);
+            return sickness;
+        }
+
         public async Task<IEnumerable<DoctorService>> getDoctorServices(string DoctorName)
         {
             List<DoctorService> services = await _context.DoctorServices.ToListAsync();
@@ -90,6 +103,20 @@ namespace Med_Center_API.Data
             await _context.DoctorServices.AddAsync(service);
             await _context.SaveChangesAsync();
             return service;
+        }
+
+        public async Task<Visit> AddVisit(Visit visit)
+        {
+            await _context.Visits.AddAsync(visit);
+            await _context.SaveChangesAsync();
+            return visit;
+        }
+
+        public async Task<Sickness> AddSickness(Sickness sickness)
+        {
+            await _context.Sicknesses.AddAsync(sickness);
+            await _context.SaveChangesAsync();
+            return sickness;
         }
 
         public async Task<Appointment> AddAppointment(Appointment appointment)
@@ -134,6 +161,13 @@ namespace Med_Center_API.Data
             var service = await _context.DoctorServices.FirstOrDefaultAsync(u => u.Id == id);
             return service;
         }
+
+        public async Task<Visit> getVisitById(int id)
+        {
+            var visit = await _context.Visits.FirstOrDefaultAsync(u => u.appointmentId == id);
+            return visit;
+        }
+
         public async Task<Appointment> getAppointmentById(int id)
         {
             var appointment = await _context.Appointments.FirstOrDefaultAsync(u => u.Id == id);
@@ -152,6 +186,5 @@ namespace Med_Center_API.Data
             var patient = await _context.Patients.FirstOrDefaultAsync(u => u.Id == id);
             return patient;
         }
-
     }
 }

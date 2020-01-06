@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointments',
@@ -11,10 +12,17 @@ export class AppointmentsComponent implements OnInit {
   currentFilter:any;
   listOfAppointments: any = {};
   name: any;
-  constructor(private authservice: AuthService) { }
+  AppointmentIdToSend: any;
+  constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
+  }
+
+  openInfo(e) {
+   this.AppointmentIdToSend = e.data.id;
+   localStorage.setItem("AppointmentId", this.AppointmentIdToSend);
+   this.router.navigateByUrl('/appointmentInfo');
   }
 
   getData() {

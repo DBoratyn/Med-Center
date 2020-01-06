@@ -26,6 +26,7 @@ import { ServiceListComponent } from './doctor/service-list/service-list.compone
 import { AppointmentAddComponent } from './receiptionist/appointment-add/appointment-add.component';
 import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-visits.component';
 import { AppointmentsComponent } from './doctor/appointments/appointments.component';
+import { AppointmentInfoComponent } from './doctor/appointment-info/appointment-info.component';
 
 @NgModule({
    declarations: [
@@ -48,6 +49,7 @@ import { AppointmentsComponent } from './doctor/appointments/appointments.compon
       AppointmentAddComponent,
       PatientVisitsComponent ,
       AppointmentsComponent,
+      AppointmentInfoComponent 
    ],
    imports: [
       BrowserModule,

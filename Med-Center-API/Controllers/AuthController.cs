@@ -86,6 +86,20 @@ namespace Med_Center_API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("getAppointmentSickness/{AppointmentId}")]
+        public async Task<IActionResult> GetAllSickness(int AppointmentId)
+        {
+            var data = await _repo.getSicknessById(AppointmentId);
+            return Ok(data);
+        }
+
+        [HttpGet("getAppointmentVisit/{AppointmentId}")]
+        public async Task<IActionResult> getAppointmentVisit(int AppointmentId)
+        {
+            var data = await _repo.getVisitById(AppointmentId);
+            return Ok(data);
+        }
+
         [HttpGet("GetAllAppointments")]
         public async Task<IActionResult>GetAllAppointments() {
             var data = await _repo.GetAllAppointments();
@@ -112,6 +126,40 @@ namespace Med_Center_API.Controllers
                 var patientFromRepo = await _repo.getPatientById(patientForUpdate.Id);
 
                 _mapper.Map(patientForUpdate, patientFromRepo);
+
+                await _repo.SaveAll();
+            } catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            return StatusCode(200);
+        }
+
+        [HttpPost("updateSickness")]
+        public async Task<IActionResult> updateSickness([FromBody]SIcknessForUpdateDto sicknessForAddOrUpdateDto)
+        {
+            try {
+                var sicknessFromRepo = await _repo.getSingleSicknessById(sicknessForAddOrUpdateDto.id);
+
+                _mapper.Map(sicknessForAddOrUpdateDto, sicknessFromRepo);
+                if (await _repo.SaveAll())
+                {
+                    return StatusCode(200);
+                }
+            } catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            return StatusCode(400);
+        }
+
+        [HttpPost("updateVisit")]
+        public async Task<IActionResult> updateVisit([FromBody]VisitForUpdateDto visitForUpdateDto)
+        {
+            try {
+                var visitFromRepo = await _repo.getVisitById(visitForUpdateDto.Id);
+
+                _mapper.Map(visitForUpdateDto, visitFromRepo);
 
                 await _repo.SaveAll();
             } catch (Exception e)
@@ -231,6 +279,15 @@ namespace Med_Center_API.Controllers
             return Ok(true);
         }
 
+        [HttpPost("DeleteSickness/{id}")]
+        public async Task<IActionResult> DeleteSickness(int id){
+            var serviceFromRepo = await _repo.getSingleSicknessById(id);
+            
+            _context.Sicknesses.Remove(serviceFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
+        }
+
         [HttpPost("DeletePatient/{id}")]
         public async Task<IActionResult> DeletePatient(int id){
             var patientFromRepo = await _repo.getPatientById(id);
@@ -280,6 +337,56 @@ namespace Med_Center_API.Controllers
             await _repo.AddAppointment(appointmentToCreate);
 
             return StatusCode(201);
+        }
+
+        [HttpPost("AddSickness/{AppointmentId}")]
+        public async Task<IActionResult> AddSickness([FromBody]SicknessForAddOrUpdateDto sicknessForAddOrUpdateDto, int AppointmentId) {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var serviceToCreate = new Sickness
+            {
+                sicknessName = sicknessForAddOrUpdateDto.sicknessName,
+                sicknessDescription = sicknessForAddOrUpdateDto.sicknessDescription,
+                cured = sicknessForAddOrUpdateDto.cured,
+                appointmentId = AppointmentId
+            };
+
+            await _repo.AddSickness(serviceToCreate);
+
+            return StatusCode(201);
+        }
+
+        [HttpPost("AddVisitInfo/{AppointmentId}")]
+        public async Task<IActionResult> AddVisitInfo([FromBody]VisitForAddOrUpdateDto visitForAddOrUpdateDto, int AppointmentId) {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var serviceToCreate = new Visit
+            {
+                dateOfVisit = visitForAddOrUpdateDto.dateOfVisit,
+                descriptionOfVisit = visitForAddOrUpdateDto.descriptionOfVisit,
+                appointmentId = AppointmentId
+            };
+
+            await _repo.AddVisit(serviceToCreate);
+
+            return StatusCode(201);
+        }
+
+        [HttpPost("DeleteVisit/{id}")]
+        public async Task<IActionResult> DeleteVisit(int id){
+            var patientFromRepo = await _repo.getVisitById(id);
+            
+            _context.Visits.Remove(patientFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
         }
 
         [HttpPost("AddDoctorService")]

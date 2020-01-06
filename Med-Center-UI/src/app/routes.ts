@@ -9,6 +9,7 @@ import { AppointmentAddComponent } from './receiptionist/appointment-add/appoint
 import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-visits.component';
 import { AppointmentsComponent } from './doctor/appointments/appointments.component';
 import { LoginComponent } from './login/login.component';
+import { AppointmentInfoComponent } from './doctor/appointment-info/appointment-info.component';
 
 export const appRoutes: Routes = [
     {path: 'receptionisthome', component: PatientListComponent},
@@ -20,5 +21,6 @@ export const appRoutes: Routes = [
     {path: 'appointmentadd', component: AppointmentAddComponent},
     {path: 'listofvisits', component: PatientVisitsComponent},
     {path: 'appointments', component: AppointmentsComponent},
+    {path: 'appointmentInfo', component: AppointmentInfoComponent},
     {path: 'login', component: LoginComponent}
 ]

@@ -71,6 +71,11 @@ export class AuthService {
     return this.http.post("http://localhost:5000/api/auth/DeleteAppointment/" + id + "/", id);
   }
 
+  deleteVisit(id)
+  {
+    return this.http.post("http://localhost:5000/api/auth/DeleteVisit/" + id + "/", id);
+  }
+
   updateAppointment(appointment) {
     return this.http.post(this.baseUrl + "updateAppointment", appointment).subscribe(response => {
       console.log(response);
@@ -79,12 +84,36 @@ export class AuthService {
     });
   }
 
-  addAppointment(appointment) {
-    return this.http.post(this.baseUrl + "AddAppointment", appointment).subscribe(response => {
+  updateSickness(sickness) {
+    return this.http.post(this.baseUrl + "updateSickness", sickness).subscribe(response => {
       console.log(response);
     }, error => {
       console.log(error);
     });
+  }
+  
+  updateVisit(visit) {
+    return this.http.post(this.baseUrl + "updateVisit", visit).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  addSickness(sickness, id) {
+    return this.http.post(this.baseUrl + "AddSickness/" + id, sickness).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  AddVisitInfo(visit, id) {
+    return this.http.post(this.baseUrl + "AddVisitInfo/" + id, visit).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
   }
 
   getAllAppointments() {
@@ -108,6 +137,14 @@ export class AuthService {
     return this.http.get("http://localhost:5000/api/auth/GetAllDoctorServices/");
   }
 
+  getAllSickness(AppointmentId): Observable<any> {
+    return this.http.get("http://localhost:5000/api/auth/getAppointmentSickness/" + AppointmentId + '/');
+  }
+
+  getAppointmentVisit(AppointmentId): Observable<any> {
+    return this.http.get("http://localhost:5000/api/auth/getAppointmentVisit/" + AppointmentId + '/');
+  }
+
   getDoctorServices(doctorName: string): Observable<any> {
     return this.http.get("http://localhost:5000/api/auth/GetDoctorServices/" + doctorName + '/');
   }
@@ -122,6 +159,10 @@ export class AuthService {
 
   deletePatient(id: number) {
     return this.http.post("http://localhost:5000/api/auth/DeletePatient/" + id + "/", id);
+  }
+
+  DeleteSickness(id: number) {
+    return this.http.post("http://localhost:5000/api/auth/DeleteSickness/" + id + "/", id);
   }
 
   login(model: any) {

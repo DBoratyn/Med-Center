@@ -13,7 +13,12 @@ namespace Med_Center_API.Data
          Task<User> getUserById(int id);
          Task<DoctorService> getDoctoServiceById(int id);
          Task<Appointment> getAppointmentById(int id);
+         Task<IEnumerable<Sickness>> getSicknessById(int id);
+         Task<Sickness> getSingleSicknessById(int id);
+         Task<Visit> getVisitById(int id);
          Task<DoctorService> AddDoctorService (DoctorService service);
+         Task<Sickness> AddSickness (Sickness sickness);
+         Task<Visit> AddVisit (Visit visit); 
          Task<Appointment> AddAppointment (Appointment appointment);
          Task<IEnumerable<DoctorService>> getDoctorServices (string DoctorName);
          Task<IEnumerable<Appointment>> GetDoctorAppointments (string DoctorName);
