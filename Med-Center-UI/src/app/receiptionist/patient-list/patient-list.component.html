@@ -1,16 +1,19 @@
 
-
 <dx-data-grid
     id="gridContainer"
     [dataSource]="listOfPatients"
     [showColumnLines]="true"
     [showRowLines]=true
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true"
     [showBorders]="true"
     [columnAutoWidth]="true"  
     (onRowDblClick)="AppointPatient($event)"
     (onRowRemoving)="deleteRow($event)"
     (onRowUpdating)="updateRow($event)"  
     [rowAlternationEnabled]="true">
+    <dxo-column-chooser [enabled]="true" [height]="500"></dxo-column-chooser>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
 
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager 
@@ -21,8 +24,8 @@
 
     <dxo-editing 
             mode="popup"
-            [allowDeleting]="true"
-            [allowUpdating]="true">
+            [allowDeleting]="action"
+            [allowUpdating]="action">
             <dxo-popup
                 title="Editing Patient"
                 [showTitle]="true"

@@ -69,12 +69,16 @@ export class AppointmentAddComponent implements OnInit {
     this.selectedspecialization = this.splitter[0];
     this.selecteddoctor = this.splitter[1];
 
+    
+    console.log("Searching for service price");
     this.services.forEach(element => {
+        console.log("nameOftreatment:");
         console.log(element.nameOfTreatment);
-        console.log(this.selecteddoctor);
-        if ((element.doctorName === this.selecteddoctor) && (element.nameOfTreatment === this.selectedspecialization)){
-        console.log("REEEEEE");
+        console.log("selectedSpecialization");
+        console.log(this.selectedspecialization);
+        if ((element.doctorName === this.selecteddoctor) && (element.nameOfTreatment.trim() === this.selectedspecialization.trim())){
         e.appointmentData.price = element.price;
+        console.log("Service price match found");
         }
     });
 

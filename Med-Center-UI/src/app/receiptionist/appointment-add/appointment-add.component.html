@@ -53,8 +53,8 @@
 
             <div class="row" style="margin-bottom: 2%;">
               <div class="col-md-5">Service:</div>
-              <div class="col-md-7">
-                  <select [(ngModel)]="selecteddoctorspecialization">
+              <div class="col-md-7" style="position: relative;">
+                  <select [(ngModel)]="selecteddoctorspecialization" style="width: 100%">
                     <option value=""></option>
                     <option *ngFor="let item of services">
                       {{item.nameOfTreatment}} #{{item.doctorName}}
