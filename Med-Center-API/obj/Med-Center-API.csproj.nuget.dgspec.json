@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {}
+    "C:\\Users\\dagma\\Desktop\\New folder\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {
+    "C:\\Users\\dagma\\Desktop\\New folder\\Med-Center\\Med-Center-API\\Med-Center-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
+        "projectUniqueName": "C:\\Users\\dagma\\Desktop\\New folder\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
         "projectName": "Med-Center-API",
-        "projectPath": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
-        "packagesPath": "C:\\Users\\jehan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jehan\\Desktop\\Med-Center\\Med-Center-API\\obj\\",
+        "projectPath": "C:\\Users\\dagma\\Desktop\\New folder\\Med-Center\\Med-Center-API\\Med-Center-API.csproj",
+        "packagesPath": "C:\\Users\\dagma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dagma\\Desktop\\New folder\\Med-Center\\Med-Center-API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\jehan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\dagma\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"

@@ -108,6 +108,14 @@ export class AuthService {
     })
   }
 
+  addAppointment(appointment) {
+    return this.http.post(this.baseUrl + "AddAppointment", appointment).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    });
+  }
+
   AddVisitInfo(visit, id) {
     return this.http.post(this.baseUrl + "AddVisitInfo/" + id, visit).subscribe(response => {
       console.log(response);

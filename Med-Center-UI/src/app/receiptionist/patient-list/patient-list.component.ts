@@ -74,7 +74,8 @@ export class PatientListComponent implements OnInit {
     }
 
     if (e.data.apartmentNumber !== null && e.data.apartmentNumber !== undefined && e.data.apartmentNumber !== ""){
-      localStorage.setItem("Address", e.data.apartmentNumber);
+      localStorage.setItem("Address", e.data.street + ' ' + e.data.houseNumber + ' ' + e.data.apartmentNumber + ' ' + e.data.zipCode
+      + ' ' + e.data.city);
     }
     
     localStorage.setItem("Pesel", e.data.pesel);

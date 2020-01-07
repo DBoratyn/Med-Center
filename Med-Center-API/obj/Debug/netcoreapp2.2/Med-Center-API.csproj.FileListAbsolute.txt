@@ -26,3 +26,17 @@ C:\Users\jehan\Desktop\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Cen
 C:\Users\jehan\Desktop\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.RazorTargetAssemblyInfo.cache
 C:\Users\jehan\Desktop\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.dll
 C:\Users\jehan\Desktop\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.pdb
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\bin\Debug\netcoreapp2.2\Med-Center-API.deps.json
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\bin\Debug\netcoreapp2.2\Med-Center-API.runtimeconfig.json
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\bin\Debug\netcoreapp2.2\Med-Center-API.runtimeconfig.dev.json
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\bin\Debug\netcoreapp2.2\Med-Center-API.dll
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\bin\Debug\netcoreapp2.2\Med-Center-API.pdb
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.csprojAssemblyReference.cache
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.csproj.CoreCompileInputs.cache
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.RazorAssemblyInfo.cache
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.RazorAssemblyInfo.cs
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.AssemblyInfoInputs.cache
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.AssemblyInfo.cs
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.RazorTargetAssemblyInfo.cache
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.dll
+C:\Users\dagma\Desktop\New folder\Med-Center\Med-Center-API\obj\Debug\netcoreapp2.2\Med-Center-API.pdb
