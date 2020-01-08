@@ -93,6 +93,13 @@ namespace Med_Center_API.Controllers
             return Ok(data);
         }
 
+        [HttpGet("getAppointmentMedicine/{AppointmentId}")]
+        public async Task<IActionResult> getAppointmentMedicine(int AppointmentId)
+        {
+            var data = await _repo.getAppointedMedicineById(AppointmentId);
+            return Ok(data);
+        }
+
         [HttpGet("getAppointmentVisit/{AppointmentId}")]
         public async Task<IActionResult> getAppointmentVisit(int AppointmentId)
         {
@@ -277,6 +284,15 @@ namespace Med_Center_API.Controllers
             _context.Appointments.Remove(serviceFromRepo);
             await _context.SaveChangesAsync();
             return Ok(true);
+        } 
+
+        [HttpPost("DeleteMedicine/{id}")]
+        public async Task<IActionResult> DeleteMedicine(int id){
+            var serviceFromRepo = await _repo.getSingleMedicineById(id);
+            
+            _context.Medicines.Remove(serviceFromRepo);
+            await _context.SaveChangesAsync();
+            return Ok(true);
         }
 
         [HttpPost("DeleteSickness/{id}")]
@@ -335,6 +351,27 @@ namespace Med_Center_API.Controllers
             };
 
             await _repo.AddAppointment(appointmentToCreate);
+
+            return StatusCode(201);
+        }
+
+        [HttpPost("AddMedicine/{AppointmentId}")]
+        public async Task<IActionResult> AddMedicine([FromBody]MedicineToAddDto sicknessForAddOrUpdateDto, int AppointmentId) {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var serviceToCreate = new Medicine
+            {
+                MedicineName = sicknessForAddOrUpdateDto.MedicineName,
+                Author = sicknessForAddOrUpdateDto.Author,
+                ProductCode = sicknessForAddOrUpdateDto.ProductCode,
+                appointmentId = AppointmentId
+            };
+
+            await _repo.AddMedicine(serviceToCreate);
 
             return StatusCode(201);
         }

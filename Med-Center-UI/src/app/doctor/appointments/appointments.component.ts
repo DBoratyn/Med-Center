@@ -25,6 +25,11 @@ export class AppointmentsComponent implements OnInit {
    this.router.navigateByUrl('/appointmentInfo');
   }
 
+  showInfo(e) {
+    console.log(e);
+    localStorage.setItem('selectedAppointment', e.data.id);
+  }
+
   getData() {
     this.authservice.GetDoctorAppointments(localStorage.getItem("name")).subscribe(response => {
       console.log(response);

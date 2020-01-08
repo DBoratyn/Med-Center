@@ -13,5 +13,6 @@ namespace Med_Center_API.Data
         public DbSet<Appointment> Appointments {get;set;}
         public DbSet<Sickness> Sicknesses {get;set;}
         public DbSet<Visit> Visits {get;set;}
+        public DbSet<Medicine> Medicines {get;set;}
     }
 }

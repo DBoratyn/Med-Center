@@ -16,12 +16,17 @@ export class PatientListComponent implements OnInit {
 
   currentFilter: any;
   popupVisible = false;
-
+  action = true;
   constructor(public patientService: PatientService, private http: HttpClient, private router: Router,
      private authService: AuthService) {}
 
   ngOnInit() {
     this.getPatients();
+    if (localStorage.getItem('role') === 'doctor' || localStorage.getItem('role') === 'Doctor') {
+      this.action = false;
+    } else {
+      this.action = true;
+    }
   }
 
   getPatients() {
@@ -66,6 +71,9 @@ export class PatientListComponent implements OnInit {
 
   AppointPatient(e){
     console.log(e);
+    if(localStorage.getItem('role') === 'doctor' || localStorage.getItem('role') === 'Doctor') {
+      return;
+    }
     localStorage.setItem("Name", e.data.name);
     localStorage.setItem("Surname", e.data.surname);
 

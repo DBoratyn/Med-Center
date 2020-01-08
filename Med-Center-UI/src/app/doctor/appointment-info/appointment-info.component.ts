@@ -13,6 +13,7 @@ export class AppointmentInfoComponent implements OnInit {
 
   listOfSickness: any = {};
   VisitInfo:any = {};
+  listOfMedicines: any = {};
 
   addSicknessToAdd: any = {};
 
@@ -20,8 +21,8 @@ export class AppointmentInfoComponent implements OnInit {
 
   ngOnInit() {
     this.AppointmentId = localStorage.getItem("AppointmentId");
-    this.getAppointmentVisit();
     this.getListOfSickness();
+    this.getListOfMedicines();
     console.log("ree");
   }
 
@@ -50,6 +51,15 @@ export class AppointmentInfoComponent implements OnInit {
     this.addSicknessToAdd.appointmentId = this.AppointmentId;
 
     this.auth.addSickness(this.addSicknessToAdd, this.AppointmentId);
+  }
+
+  deleteMedicineRow(e) {
+    const idToDelete = e.data.id;
+    this.auth.DeleteMedicine(idToDelete).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
   }
 
   deleteRow(e) {
@@ -87,6 +97,14 @@ export class AppointmentInfoComponent implements OnInit {
 
   }
 
+  getListOfMedicines() {
+    this.auth.getAllMedicine(this.AppointmentId).subscribe (response => {
+      this.listOfMedicines = response;
+      console.log("MEDS");
+      console.log(this.listOfMedicines);
+    },error => { console.log(error)});
+  }
+
   getListOfSickness() {
     this.auth.getAllSickness(this.AppointmentId).subscribe( response => {
       this.listOfSickness = response;
@@ -95,12 +113,5 @@ export class AppointmentInfoComponent implements OnInit {
     },error => { console.log(error)});
   }
 
-  getAppointmentVisit() {
-    this.auth.getAppointmentVisit(this.AppointmentId).subscribe( response => {
-      this.VisitInfo = response;
-      console.log("visit");
-      console.log(this.VisitInfo);
-    },error => { console.log(error)});
-  }
 
 }

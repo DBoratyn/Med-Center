@@ -100,6 +100,15 @@ export class AuthService {
     });
   }
 
+  
+  addMedicine(medicine, id) {
+    return this.http.post(this.baseUrl + "AddMedicine/" + id, medicine).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
+    })
+  }
+
   addSickness(sickness, id) {
     return this.http.post(this.baseUrl + "AddSickness/" + id, sickness).subscribe(response => {
       console.log(response);
@@ -133,6 +142,11 @@ export class AuthService {
 
   }
 
+  getApiData(){
+
+    return this.http.get("https://datadiscovery.nlm.nih.gov/resource/crzr-uvwg.json");
+  }
+
   payAppointment(id) {
     return this.http.post(this.baseUrl + "PayAppointment/" + id, id);
   }
@@ -147,6 +161,10 @@ export class AuthService {
 
   getAllSickness(AppointmentId): Observable<any> {
     return this.http.get("http://localhost:5000/api/auth/getAppointmentSickness/" + AppointmentId + '/');
+  }
+
+  getAllMedicine(AppointmentId) {
+    return this.http.get("http://localhost:5000/api/auth/getAppointmentMedicine/" + AppointmentId + '/');
   }
 
   getAppointmentVisit(AppointmentId): Observable<any> {
@@ -171,6 +189,10 @@ export class AuthService {
 
   DeleteSickness(id: number) {
     return this.http.post("http://localhost:5000/api/auth/DeleteSickness/" + id + "/", id);
+  }
+
+  DeleteMedicine(id: number) {
+    return this.http.post("http://localhost:5000/api/auth/DeleteMedicine/" + id + "/", id);
   }
 
   login(model: any) {

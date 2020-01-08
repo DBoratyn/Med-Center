@@ -1,0 +1,90 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6">
+
+      <dx-data-grid
+      #meds
+      id="gridContainer"
+      [dataSource]="pharmacyData"
+      [showColumnLines]="true"
+      [showRowLines]=true
+      [showBorders]="true"
+      [columnAutoWidth]="true"  
+      (onRowClick)="selectMedicine($event)"
+      [rowAlternationEnabled]="true">
+      
+    <dxo-selection mode="single"></dxo-selection>
+      <dxo-paging [pageSize]="10"></dxo-paging>
+      <dxo-pager 
+          [showPageSizeSelector]="true"
+          [allowedPageSizes]="[5, 10, 20]"
+          [showInfo]="true">
+      </dxo-pager>
+      
+      <dxo-filter-row 
+          [visible]="true" 
+          [applyFilter]="currentFilter"></dxo-filter-row>
+      <dxo-header-filter 
+          [visible]="true"></dxo-header-filter>
+      <dxo-search-panel 
+          [visible]="true" 
+          [width]="240" 
+          placeholder="Search..."></dxo-search-panel>
+      
+          <dxi-column dataField="medicine_name"></dxi-column>
+          <dxi-column dataField="author"></dxi-column>
+          <dxi-column dataField="approval_code"></dxi-column>
+          <dxi-column dataField="product_code"></dxi-column>
+          <dxi-column dataField="spl_strength"></dxi-column>
+          <dxi-column dataField="spl_inactive_ing"></dxi-column>
+      
+      </dx-data-grid>
+    </div>
+    
+		<div class="col-md-6" >
+			<div class="row">
+				<div class="col-md-12"*ngIf="selectedMedicine"  style="background-color: #363640; border-radius:15px 15px 15px 15px; ">
+        
+        <div class="dx-fieldset">
+          <div class="dx-field">
+            <div class="row" style="color: rgb(0, 150, 136) border">
+              <div class="col-md-2" style="margin-bottom: 2%;">Medicine Name:</div>
+              <div class="col-md-4" style="margin-bottom: 2%;">
+                  <textarea disabled [(ngModel)]="selectedMedicine.rxstring"> </textarea>
+              </div>
+              <div class="col-md-2" style="margin-bottom: 2%;">Source:</div>
+              <div class="col-md-4" style="margin-bottom: 2%;">
+                  <input disabled [(ngModel)]="selectedMedicine.source">
+              </div>
+              <div class="col-md-2" style="margin-bottom: 2%;">Version No.:</div>
+              <div class="col-md-4" style="margin-bottom: 2%;">
+                  <input disabled [(ngModel)]="selectedMedicine.version_number">
+              </div>
+              <div class="col-md-2" style="margin-bottom: 2%;">Created at:</div>
+              <div class="col-md-4" style="margin-bottom: 2%;">
+                  <textarea disabled [(ngModel)]="selectedMedicine.created_at"></textarea>
+              </div>
+              
+              <div class="col-md-2" style="margin-bottom: 2%;">Ingredients:</div>
+              <div class="col-md-10" style="margin-bottom: 2%;">
+                  <textarea disabled style="width: 100%; height: 80px" [(ngModel)]="selectedMedicine.spl_inactive_ing"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+				</div>
+      </div>
+      <br *ngIf="selectedMedicine">
+			<div class="row">
+				<div class="col-md-12" style="background-color: #363640; border-radius:15px 15px 15px 15px;">
+          <app-appointments></app-appointments>
+				</div>
+      </div>
+      <br>
+      <div class="row" *ngIf="selectedMedicine">
+        <div class="col-md-12">
+          <button (click)="addMedicineToAppointment()" class="btn btn-primary my-2 my-sm-0">Add Selected Medicine to Appointment</button>
+        </div>
+      </div>
+	</div>
+</div>

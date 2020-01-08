@@ -67,9 +67,22 @@ namespace Med_Center_API.Data
             return filteredServices;
         }
 
+        public async Task<IEnumerable<Medicine>> getAppointedMedicineById(int id)
+        {
+            List<Medicine> services = await _context.Medicines.ToListAsync();
+            IEnumerable<Medicine> filteredServices = services.FindAll(x => x.appointmentId == id);
+            return filteredServices;
+        }
+
         public async Task<Sickness> getSingleSicknessById(int id)
         {
             var sickness = await _context.Sicknesses.FirstOrDefaultAsync(x => x.id == id);
+            return sickness;
+        }
+
+        public async Task<Medicine> getSingleMedicineById(int id)
+        {
+            var sickness = await _context.Medicines.FirstOrDefaultAsync(x => x.Id == id);
             return sickness;
         }
 
@@ -115,6 +128,13 @@ namespace Med_Center_API.Data
         public async Task<Sickness> AddSickness(Sickness sickness)
         {
             await _context.Sicknesses.AddAsync(sickness);
+            await _context.SaveChangesAsync();
+            return sickness;
+        }
+
+        public async Task<Medicine> AddMedicine(Medicine sickness)
+        {
+            await _context.Medicines.AddAsync(sickness);
             await _context.SaveChangesAsync();
             return sickness;
         }
