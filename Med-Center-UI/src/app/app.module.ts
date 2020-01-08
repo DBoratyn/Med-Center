@@ -3,7 +3,7 @@ import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { DxDataGridModule, DxPopupModule, DxButtonModule, DxTemplateModule, DxScrollViewModule, DxSchedulerModule } from 'devextreme-angular';
+import { DxDataGridModule, DxPopupModule, DxButtonModule, DxTemplateModule, DxScrollViewModule, DxSchedulerModule, DxChartModule } from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -28,6 +28,7 @@ import { PatientVisitsComponent } from './receiptionist/patient-visits/patient-v
 import { AppointmentsComponent } from './doctor/appointments/appointments.component';
 import { AppointmentInfoComponent } from './doctor/appointment-info/appointment-info.component';
 import { PharmacyComponent } from './doctor/pharmacy/pharmacy.component';
+import { DashboardComponent } from './administrator/dashboard/dashboard.component';
 
 @NgModule({
    declarations: [
@@ -51,7 +52,8 @@ import { PharmacyComponent } from './doctor/pharmacy/pharmacy.component';
       PatientVisitsComponent ,
       AppointmentsComponent,
       AppointmentInfoComponent,
-      PharmacyComponent
+      PharmacyComponent,
+      DashboardComponent
    ],
    imports: [
       BrowserModule,
@@ -65,6 +67,7 @@ import { PharmacyComponent } from './doctor/pharmacy/pharmacy.component';
       DxTemplateModule,
       DxScrollViewModule,
       DxSchedulerModule,
+      DxChartModule
    ],
    schemas: [
       CUSTOM_ELEMENTS_SCHEMA

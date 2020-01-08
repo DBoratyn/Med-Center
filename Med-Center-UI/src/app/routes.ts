@@ -11,6 +11,7 @@ import { AppointmentsComponent } from './doctor/appointments/appointments.compon
 import { LoginComponent } from './login/login.component';
 import { AppointmentInfoComponent } from './doctor/appointment-info/appointment-info.component';
 import { PharmacyComponent } from './doctor/pharmacy/pharmacy.component';
+import { DashboardComponent } from './administrator/dashboard/dashboard.component';
 
 export const appRoutes: Routes = [
     {path: 'receptionisthome', component: PatientListComponent},
@@ -24,5 +25,6 @@ export const appRoutes: Routes = [
     {path: 'appointments', component: AppointmentsComponent},
     {path: 'appointmentInfo', component: AppointmentInfoComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'pharmacy', component: PharmacyComponent}
+    {path: 'pharmacy', component: PharmacyComponent},
+    {path: 'dashboard', component: DashboardComponent}
 ]
